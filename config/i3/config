@@ -35,6 +35,25 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+#--------#
+# COLORS #
+#--------#
+# hide side borders
+hide_edge_borders both
+#for_window [class="^.*"] border none
+
+set $bg-color 	         #263238
+set $inactive-bg-color   #263238
+set $text-color          #CFD8DC
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 #-------#
 # FOCUS #
@@ -104,8 +123,8 @@ bindsym $mod+Shift+space floating toggle
 # WORKSPACES #
 #------------#
 # set workspaces names
-set $workspace2 "2: "
-set $workspace3 "3: "
+set $workspace2 "2- "
+set $workspace3 "3- "
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -189,6 +208,14 @@ bindsym $mod+Pause mode "$mode_system"
 # finds out, if available)
 bar {
         status_command i3blocks
+        colors {
+		background $bg-color
+	    	separator #757575
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        }
 }
 
 
@@ -227,7 +254,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 && notify-
 #----------------------#
 # STARTUP APPLICATIONS #
 #----------------------#
-
 # enable tap to click
 exec_always --no-startup-id xinput set-prop 15 296 1 
 # set touchpad speed

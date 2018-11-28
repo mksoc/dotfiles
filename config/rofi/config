@@ -1,2 +1,3 @@
 # set 'run' mode to run programs
 rofi.modi: run
+rofi.theme: Adapta-Nokto
