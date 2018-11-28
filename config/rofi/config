@@ -1,0 +1,2 @@
+# set 'run' mode to run programs
+rofi.modi: run

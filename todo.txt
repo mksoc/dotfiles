@@ -1,2 +1,2 @@
-- feh for background
+- Print screenshots
 - see somewhere volume/brightness
