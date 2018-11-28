@@ -23,3 +23,4 @@ ln -sv $dot_dir/config/i3/config ~/.config/i3/config
 mkdir -p ~/.config/rofi ; ln -sv $dot_dir/config/rofi/config $_/config
 ln -sv $dot_dir/config/compton.conf ~/.config/compton.conf
 mkdir -p ~/.config/i3blocks ; ln -sv $dot_dir/config/i3blocks/config $_/config
+mkdir -p ~/.config/i3blocks/scripts ; ln -sv $dot_dir/config/i3blocks/scripts/* $_

@@ -30,27 +30,10 @@ markup=none
 
 # Volume indicator
 #
-# The first parameter sets the step (and units to display)
-# The second parameter overrides the mixer selection
-# See the script for details.
-[volume]
-label=VOL
-#label=♪
-instance=Master
-#instance=PCM
+[volume-pulseaudio]
+command=$SCRIPT_DIR/volume-pulseaudio -f
 interval=once
-signal=10
-
-
-# Disk usage
-#
-# The directory defaults to $HOME if the instance is not specified.
-# The script may be called with a optional argument to set the alert
-# (defaults to 10 for 10%).
-# [disk]
-# label=
-# #instance=/mnt/data
-# interval=30
+signal=1
 
 # Network interface monitoring
 #
@@ -104,15 +87,15 @@ interval=1
 #
 # The battery instance defaults to 0.
 [battery]
-label=⚡
-#instance=1
+command=$SCRIPT_DIR/battery2
+markup=pango
 interval=30
 
 # Date Time
 #
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
-interval=5
+interval=1
 
 # Generic media player support
 #
