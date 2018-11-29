@@ -39,7 +39,7 @@ font xft:URWGothic-Book 11
 bindsym $mod+Return exec terminal
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency
+bindsym $mod+d exec --no-startup-id rofi -show
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -52,18 +52,18 @@ bindsym $mod+Shift+r restart
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
+bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+# bindsym $mod+F5 exec terminal -e 'mocp'
+# bindsym $mod+t exec --no-startup-id pkill compton
+# bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+# bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+# bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 #-------#
@@ -78,7 +78,7 @@ bindsym $mod+q kill
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+ograve focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -90,7 +90,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+ograve move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -105,6 +105,9 @@ bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+# focus when active
+focus_on_window_activation focus
 
 #------------#
 # MEDIA KEYS #
@@ -317,7 +320,7 @@ exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
+# exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
@@ -325,6 +328,12 @@ exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+# set touchpad speed
+exec_always --no-startup-id xinput set-prop 15 292 0.5
+# lock after suspend
+exec_always --no-startup-id xss-lock --transfer-sleep-lock -- blurlock &
+# turn on numpad
+exec_always --no-startup-id numlockx on
 
 
 #--------#
