@@ -263,7 +263,7 @@ for_window [urgent=latest] focus
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
+# bindsym $mod+9 exec --no-startup-id blurlock
 
 # Set shut down, restart and locking features
 bindsym $mod+Pause mode "$mode_system"
@@ -325,7 +325,7 @@ exec --no-startup-id pamac-tray
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 # set touchpad speed
