@@ -5,7 +5,8 @@
 # VARIABLES #
 #-----------#
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
-set $mod Mod4
+set $alt Mod1
+set $super Mod4
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -21,9 +22,9 @@ new_float normal
 hide_edge_borders none
 
 # change borders
-bindsym $mod+u border none
-bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
+bindsym $super+u border none
+bindsym $super+y border pixel 1
+bindsym $super+n border normal
 
 #-------#
 # FONTS #
@@ -36,75 +37,77 @@ font xft:URWGothic-Book 11
 # PROGRAM BINDINGS #
 #------------------#
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $super+Return exec terminal
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show
+bindsym $super+d exec --no-startup-id rofi -show drun
+bindsym $alt+Tab exec --no-startup-id rofi -show window
+bindsym $alt+s exec --no-startup-id rofi -show ssh
 
 # launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
+bindsym $super+z exec --no-startup-id morc_menu
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $super+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $super+Shift+r restart
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec firefox
-bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec gksu pcmanfm
-# bindsym $mod+F5 exec terminal -e 'mocp'
-# bindsym $mod+t exec --no-startup-id pkill compton
-# bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-# bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym $super+Ctrl+b exec terminal -e 'bmenu'
+bindsym $super+F2 exec firefox
+bindsym $super+F3 exec pcmanfm
+# bindsym $super+F3 exec ranger
+bindsym $super+Shift+F3 exec gksu pcmanfm
+# bindsym $super+F5 exec terminal -e 'mocp'
+# bindsym $super+t exec --no-startup-id pkill compton
+# bindsym $super+Ctrl+t exec --no-startup-id compton -b
+# bindsym $super+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-# bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $super+Print --release exec --no-startup-id i3-scrot -w
+bindsym $super+Shift+Print --release exec --no-startup-id i3-scrot -s
+# bindsym $super+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+bindsym $super+Ctrl+x --release exec --no-startup-id xkill
 
 #-------#
 # FOCUS #
 #-------#
 # kill focused window
-bindsym $mod+q kill
+bindsym $super+q kill
 
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+ograve focus right
+bindsym $super+j focus left
+bindsym $super+k focus down
+bindsym $super+l focus up
+bindsym $super+ograve focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ograve move right
+bindsym $super+Shift+j move left
+bindsym $super+Shift+k move down
+bindsym $super+Shift+l move up
+bindsym $super+Shift+ograve move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $super+b workspace back_and_forth
+bindsym $super+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $super+a focus parent
 
 # focus when active
 focus_on_window_activation focus
@@ -117,10 +120,10 @@ focus_on_window_activation focus
 ################################################################################################
 
 exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+bindsym $super+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+#bindsym $super+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -131,53 +134,53 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #--------#
 # LAYOUT #
 #--------#
-# Use Mouse+$mod to drag floating windows
-floating_modifier $mod
+# Use Mouse+$super to drag floating windows
+floating_modifier $super
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
-#bindsym $mod+q split toggle
+bindsym $super+h split h;exec notify-send 'tile horizontally'
+bindsym $super+v split v;exec notify-send 'tile vertically'
+#bindsym $super+q split toggle
 
 # toggle fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $super+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $super+s layout stacking
+bindsym $super+w layout tabbed
+bindsym $super+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $super+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $super+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+bindsym $super+Shift+s sticky toggle
 
 # move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $super+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+bindsym $super+minus scratchpad show
 
 
 #------------#
 # WORKSPACES #
 #------------#
 #navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+bindsym $super+Ctrl+Right workspace next
+bindsym $super+Ctrl+Left workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1
-set $ws2 2
-set $ws3 3
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
 set $ws4 4
 set $ws5 5
 set $ws6 6
@@ -185,44 +188,46 @@ set $ws7 7
 set $ws8 8
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
+bindsym $super+1 workspace $ws1
+bindsym $super+2 workspace $ws2
+bindsym $super+3 workspace $ws3
+bindsym $super+4 workspace $ws4
+bindsym $super+5 workspace $ws5
+bindsym $super+6 workspace $ws6
+bindsym $super+7 workspace $ws7
+bindsym $super+8 workspace $ws8
 
 # Move focused container to workspace
-bindsym $mod+Ctrl+1 move container to workspace $ws1
-bindsym $mod+Ctrl+2 move container to workspace $ws2
-bindsym $mod+Ctrl+3 move container to workspace $ws3
-bindsym $mod+Ctrl+4 move container to workspace $ws4
-bindsym $mod+Ctrl+5 move container to workspace $ws5
-bindsym $mod+Ctrl+6 move container to workspace $ws6
-bindsym $mod+Ctrl+7 move container to workspace $ws7
-bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $super+Ctrl+1 move container to workspace $ws1
+bindsym $super+Ctrl+2 move container to workspace $ws2
+bindsym $super+Ctrl+3 move container to workspace $ws3
+bindsym $super+Ctrl+4 move container to workspace $ws4
+bindsym $super+Ctrl+5 move container to workspace $ws5
+bindsym $super+Ctrl+6 move container to workspace $ws6
+bindsym $super+Ctrl+7 move container to workspace $ws7
+bindsym $super+Ctrl+8 move container to workspace $ws8
 
 # Move to workspace with focused container
-bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $super+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $super+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $super+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $super+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $super+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $super+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $super+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $super+Shift+8 move container to workspace $ws8; workspace $ws8
 
 
 #-------------#
 # ASSIGNMENTS #
 #-------------#
 # Open applications on specific workspaces
-# assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
+assign [class="URxvt"] $ws1
+for_window [class="URxvt"] focus
+assign [class="Firefox"] $ws2
+for_window [class="Firefox"] focus
+assign [class="code"] $ws3
+for_window [class="code"] focus
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -251,6 +256,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [class="TelegramDesktop"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -260,15 +266,15 @@ for_window [urgent=latest] focus
 # EXIT MODE #
 #-----------#
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $super+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Lock screen
-# bindsym $mod+9 exec --no-startup-id blurlock
+# bindsym $super+9 exec --no-startup-id blurlock
 
 # Set shut down, restart and locking features
-bindsym $mod+Pause mode "$mode_system"
-set $mode_system (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
-mode "$mode_system" {
+bindsym $super+Pause mode "$supere_system"
+set $supere_system (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
+mode "$supere_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     #bindsym u exec --no-startup-id i3exit switch_user, mode "default"
@@ -286,7 +292,7 @@ mode "$mode_system" {
 # RESIZE MODE #
 #-------------#
 # Resize window (you can also use the mouse for that)
-bindsym $mod+r mode "resize"
+bindsym $super+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
@@ -316,7 +322,7 @@ mode "resize" {
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id manjaro-hello
+# exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -334,6 +340,7 @@ exec_always --no-startup-id xinput set-prop 15 292 0.5
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- blurlock &
 # turn on numpad
 exec_always --no-startup-id numlockx on
+exec --no-startup-id redshift
 
 
 #--------#
@@ -396,7 +403,7 @@ bar {
 	bindsym button4 nop
 	bindsym button5 nop
 #   font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
+	strip_workspace_numbers no
 
     colors {
         background #222D31
@@ -413,7 +420,7 @@ bar {
 }
 
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+bindsym $super+m bar mode toggle
 
 #------#
 # GAPS #
@@ -434,19 +441,19 @@ smart_gaps on
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+# Press $super+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+set $supere_gaps Gaps: (o) outer, (i) inner
+set $supere_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $supere_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $super+Shift+g mode "$supere_gaps"
 
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
+mode "$supere_gaps" {
+        bindsym o      mode "$supere_gaps_outer"
+        bindsym i      mode "$supere_gaps_inner"
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-mode "$mode_gaps_inner" {
+mode "$supere_gaps_inner" {
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
         bindsym 0     gaps inner current set 0
@@ -458,7 +465,7 @@ mode "$mode_gaps_inner" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-mode "$mode_gaps_outer" {
+mode "$supere_gaps_outer" {
         bindsym plus  gaps outer current plus 5
         bindsym minus gaps outer current minus 5
         bindsym 0     gaps outer current set 0
