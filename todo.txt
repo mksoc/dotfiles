@@ -1,2 +1,4 @@
-- Print screenshots
-- see somewhere volume/brightness
+- Screenshots to clipboard
+- Manage .Xresources
+- Battery icon change when discharging
+- Polybar
