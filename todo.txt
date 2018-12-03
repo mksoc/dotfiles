@@ -2,3 +2,4 @@
 - Manage .Xresources
 - Battery icon change when discharging
 - Polybar
+- Change font of title bar
