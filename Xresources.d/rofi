@@ -1,9 +1,10 @@
 ! Appearance
+rofi.font:                Ubuntu Mono 14
 rofi.color-window:        BACKGROUND, BACKGROUND, BACKGROUND
-rofi.color-normal:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR1
-rofi.color-active:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR1
-rofi.color-urgent:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR1
-rofi.bw:                  100
+rofi.color-normal:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR6
+rofi.color-active:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR6
+rofi.color-urgent:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR6
+rofi.bw:                  1
 
 ! Behavior
 rofi.parse-hosts:         false
