@@ -1,0 +1,10 @@
+! Appearance
+rofi.color-window:        BACKGROUND, BACKGROUND, BACKGROUND
+rofi.color-normal:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR1
+rofi.color-active:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR1
+rofi.color-urgent:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR1
+rofi.bw:                  100
+
+! Behavior
+rofi.parse-hosts:         false
+rofi.parse-known-hosts:   false

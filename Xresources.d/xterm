@@ -3,24 +3,6 @@ XTerm*faceName:          Fixed
 XTerm*faceSize:          11
 
 ! Colors
-XTerm*foreground:                 FOREGROUND
-XTerm*background:                 BACKGROUND
-XTerm*color0:                     COLOR0
-XTerm*color1:                     COLOR1
-XTerm*color2:                     COLOR2
-XTerm*color3:                     COLOR3
-XTerm*color4:                     COLOR4
-XTerm*color5:                     COLOR5
-XTerm*color6:                     COLOR6
-XTerm*color7:                     COLOR7
-XTerm*color8:                     COLOR8
-XTerm*color9:                     COLOR9
-XTerm*color10:                    COLOR10
-XTerm*color11:                    COLOR11
-XTerm*color12:                    COLOR12
-XTerm*color13:                    COLOR13
-XTerm*color14:                    COLOR14
-XTerm*color15:                    COLOR15
 XTerm*pointerColor:               #1ABB9B
 XTerm*pointerColorBackground:     #2B2C2B
 XTerm*pointerColorForeground:     #16A085

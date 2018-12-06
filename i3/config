@@ -360,24 +360,24 @@ exec --no-startup-id redshift
 # to:
 # background $term_background
 # Same logic applied to everything else.
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
+set_from_resource $term_background i3.background
+set_from_resource $term_foreground i3.foreground
+set_from_resource $term_color0     i3.color0
+set_from_resource $term_color1     i3.color1
+set_from_resource $term_color2     i3.color2
+set_from_resource $term_color3     i3.color3
+set_from_resource $term_color4     i3.color4
+set_from_resource $term_color5     i3.color5
+set_from_resource $term_color6     i3.color6
+set_from_resource $term_color7     i3.color7
+set_from_resource $term_color8     i3.color8
+set_from_resource $term_color9     i3.color9
+set_from_resource $term_color10    i3.color10
+set_from_resource $term_color11    i3.color11
+set_from_resource $term_color12    i3.color12
+set_from_resource $term_color13    i3.color13
+set_from_resource $term_color14    i3.color14
+set_from_resource $term_color15    i3.color15
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -408,16 +408,16 @@ bar {
 	strip_workspace_numbers no
 
     colors {
-        background #222D31
+        background $term_background
         statusline #F9FAF9
         separator  #454947
 
-#                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+#                          border            backgr.           text
+        focused_workspace  #F9FAF9           $term_color6      #292F34
+        active_workspace   #595B5B           #353836           #FDF6E3
+        inactive_workspace #595B5B           #222D31           #EEE8D5
+        binding_mode       $term_color6      #2C2C2C           #F9FAF9
+        urgent_workspace   $term_color6      #FDF6E3           #E5201D
     }
 }
 
