@@ -7,28 +7,28 @@
 
 ! red dark/light
 #define COLOR1  #ab4642
-#define COLOR9  #ab4642
+#define COLOR9  #cc6666
 
 ! green dark/light
-#define COLOR2  #7E807E
-#define COLOR10 #8D8F8D
+#define COLOR2  #409457
+#define COLOR10 #88bd68
 
 ! yellow dark/light
-#define COLOR3  #f7ca88
-#define COLOR11 #f7ca88
+#define COLOR3  #de935f
+#define COLOR11 #f0c674
 
 ! blue dark/light
-#define COLOR4  #7cafc2
-#define COLOR12 #7cafc2
+#define COLOR4  #5f819d
+#define COLOR12 #81a2be
 
 ! magenta dark/light
-#define COLOR5  #ba8baf
-#define COLOR13 #ba8baf
+#define COLOR5  #85678f
+#define COLOR13 #b294bb
 
 ! cyan dark/light
 #define COLOR6  #1ABB9B
-#define COLOR14 #1ABB9B
+#define COLOR14 #8abeb7
 
 ! white dark/light
-#define COLOR7  #d8d8d8
-#define COLOR15 #f8f8f8
+#define COLOR7  #707880
+#define COLOR15 #c5c8c6
