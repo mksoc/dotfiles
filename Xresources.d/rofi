@@ -1,6 +1,6 @@
 ! Appearance
 rofi.font:                Ubuntu Mono 14
-rofi.color-window:        BACKGROUND, BACKGROUND, BACKGROUND
+rofi.color-window:        BACKGROUND, COLOR6, BACKGROUND
 rofi.color-normal:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR6
 rofi.color-active:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR6
 rofi.color-urgent:        BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR6
