@@ -1,4 +1,2 @@
 - Screenshots to clipboard
-- Battery icon change when discharging
-- Polybar
 - colorscheme scripts
