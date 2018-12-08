@@ -54,9 +54,9 @@ bindsym $super+Shift+r restart
 bindsym $super+F1 exec telegram-desktop
 bindsym $super+F2 exec firefox
 bindsym $super+F3 exec ranger
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $super+Print --release exec --no-startup-id i3-scrot -w
-bindsym $super+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym Print exec --no-startup-id ~/.i3/scripts/i3-scrot
+bindsym Shift+Print --release exec --no-startup-id ~/.i3/scripts/i3-scrot -w
+bindsym Ctrl+Shift+Print --release exec --no-startup-id ~/.i3/scripts/i3-scrot -s
 bindsym $super+Ctrl+x --release exec --no-startup-id xkill
 
 #-------#
@@ -264,7 +264,7 @@ exec_always --no-startup-id xinput set-prop 15 292 0.5
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- blurlock &
 exec_always --no-startup-id numlockx on
 exec --no-startup-id redshift
-exec_always --no-startup-id ~/.i3/polybar.sh
+exec_always --no-startup-id ~/.i3/scripts/polybar.sh
 
 #--------#
 # COLORS #
