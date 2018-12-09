@@ -37,7 +37,7 @@ font-3 = DejaVu Sans:pixelsize=11;1
 font-4 = UbuntuMono Nerd Font Mono:pixelsize=20;4
 modules-left = i3 xwindow
 modules-center = popup-calendar
-modules-right = wireless-network xbacklight pulseaudio battery
+modules-right = wireless-network xbacklight battery
 module-margin = 3
 tray-position = right
 tray-padding = 5
@@ -48,9 +48,9 @@ cursor-scroll = ns-resize
 
 [module/i3]
 type = internal/i3
-ws-icon-0 = 1;
+ws-icon-0 = 1;
 ws-icon-1 = 2;
-ws-icon-2 = 3;
+ws-icon-2 = 3;
 ws-icon-default = 
 label-mode-padding = 2
 label-mode-background = ${colors.alert}
