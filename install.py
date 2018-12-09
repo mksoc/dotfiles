@@ -34,7 +34,7 @@ dotfiles_in_repo = []
 for root, dirs, files in os.walk(repo_root):
     if '.git' in dirs:
         dirs.remove('.git')
-    dotfiles_in_repo.extend([os.path.join(root, f) for f in files if f not in ('install.py', 'install.sh', 'todo.txt', 'README', 'colorscheme-manjaro-default')])
+    dotfiles_in_repo.extend([os.path.join(root, f) for f in files if f not in ('install.py', 'install.sh', 'todo.txt', 'README', 'colorscheme-manjaro-default', 'def2xres.py', 'xres2def.py')])
 
 # remove absolute path and add a leading dot
 dotfiles_relative = [item.replace('{}/'.format(repo_root), '.') for item in dotfiles_in_repo]
