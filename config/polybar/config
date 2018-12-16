@@ -19,9 +19,9 @@
 [colors]
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
-primary = ${xrdb:color12}
+primary = ${xrdb:color4}
 secondary = ${xrdb:color7}
-alert = ${xrdb:color10}
+alert = ${xrdb:color1}
 
 [bar/top]
 monitor = eDP1
