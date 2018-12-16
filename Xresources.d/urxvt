@@ -4,7 +4,7 @@ URxvt.font:                       xft:UbuntuMono Nerd Font Mono
 ! Colors
 URxvt.depth:                      32
 URxvt*background:                 [85]BACKGROUND
-URxvt*cursorColor:                COLOR6
+URxvt*cursorColor:                COLOR4
 URxvt*cursorColor2:               BACKGROUND
 
 ! Behavior
