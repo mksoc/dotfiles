@@ -14,16 +14,12 @@ set $super Mod4
 # BORDERS #
 #---------#
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
-new_float normal
+default_border pixel 2
+default_floating_border normal
+for_window [class="^.*"] border pixel 2
 
 # Hide borders
 hide_edge_borders none
-
-# change borders
-bindsym $super+u border none
-bindsym $super+y border pixel 1
-bindsym $super+n border normal
 
 #-------#
 # FONTS #
@@ -51,9 +47,9 @@ bindsym $super+Shift+c reload
 bindsym $super+Shift+r restart
 
 # Start Applications
-bindsym $super+F1 exec firefox
-bindsym $super+F2 exec telegram-desktop
-bindsym $super+F3 exec urxvt -e ranger
+bindsym $super+F1 exec urxvt -e ranger
+bindsym $super+F2 exec firefox
+bindsym $super+F3 exec telegram-desktop
 bindsym Print exec --no-startup-id ~/.i3/scripts/i3-scrot
 bindsym Shift+Print --release exec --no-startup-id ~/.i3/scripts/i3-scrot -w
 bindsym Ctrl+Shift+Print --release exec --no-startup-id ~/.i3/scripts/i3-scrot -s
@@ -196,10 +192,11 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
+#for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="TelegramDesktop"] floating enable
 for_window [class="Yad"] floating enable
 for_window [class='Wpg'] floating enable
+for_window [class="discord"] floating enable
 
 #-----------#
 # EXIT MODE #
@@ -269,6 +266,7 @@ exec --no-startup-id redshift
 exec_always --no-startup-id ~/.i3/scripts/polybar.sh
 exec --no-startup-id dropbox
 exec --no-startup-id nextcloud
+exec --no-startup-id udiskie -t
 
 #--------#
 # COLORS #
@@ -293,12 +291,12 @@ set_from_resource $term_color14    i3.color14
 set_from_resource $term_color15    i3.color15
 
 # Theme colors
-# class                   border       backgr.          text    indic.   child_border
-  client.focused          $term_color4 $term_background $term_foreground #FDF6E3
-  client.focused_inactive #2F3D44      $term_background $term_foreground #454948
-  client.unfocused        $term_color7 $term_background $term_color7 #454948
-  client.urgent           #CB4B16      #FDF6E3          #1ABC9C #268BD2
-  client.placeholder      #000000      #0c0c0c          #ffffff #000000 
+# class                   border        backgr.                 text                    indic.          child_border
+  client.focused          $term_color4  $term_background        $term_foreground        #FDF6E3         $term_color4
+  client.focused_inactive $term_color7  $term_background        $term_foreground        #454948         $term_color7
+  client.unfocused        $term_color7  $term_background        $term_color7            #454948         $term_color7
+  client.urgent           #CB4B16       #FDF6E3                 #1ABC9C                 #268BD2
+  client.placeholder      #000000       #0c0c0c                 #ffffff                 #000000 
 
   client.background       #2B2C2B
 
@@ -306,7 +304,7 @@ set_from_resource $term_color15    i3.color15
 # GAPS #
 #------#
 # Set inner/outer gaps
-gaps inner 14
+gaps inner 10
 gaps outer -2
 
 # Smart gaps (gaps used if only more than one container on the workspace)
