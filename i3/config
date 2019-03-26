@@ -55,6 +55,11 @@ bindsym Shift+Print --release exec --no-startup-id ~/.i3/scripts/i3-scrot -w
 bindsym Ctrl+Shift+Print --release exec --no-startup-id ~/.i3/scripts/i3-scrot -s
 bindsym $super+Ctrl+x --release exec --no-startup-id xkill
 
+# Function keys
+# bindsym XF86ScreenSaver
+bindsym XF86TouchpadToggle exec ~/.i3/scripts/touchpad-on-off.sh
+bindsym XF86Calculator exec urxvt -name ufloat -e bc -l
+
 #-------#
 # FOCUS #
 #-------#
@@ -197,6 +202,7 @@ for_window [class="TelegramDesktop"] floating enable
 for_window [class="Yad"] floating enable
 for_window [class='Wpg'] floating enable
 for_window [class="discord"] floating enable
+for_window [class="URxvt" instance="ufloat"] floating enable
 
 #-----------#
 # EXIT MODE #
