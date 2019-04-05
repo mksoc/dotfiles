@@ -203,6 +203,8 @@ for_window [class="Yad"] floating enable
 for_window [class='Wpg'] floating enable
 for_window [class="discord"] floating enable
 for_window [class="URxvt" instance="ufloat"] floating enable
+for_window [class="octave-gui" title="Figure*"] floating enable
+for_window [class="GNU Octave" title="Figure*"] floating enable
 
 #-----------#
 # EXIT MODE #
