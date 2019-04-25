@@ -273,9 +273,10 @@ exec_always --no-startup-id ~/.i3/scripts/set-tp-speed.sh
 exec_always --no-startup-id numlockx on
 exec --no-startup-id redshift
 exec_always --no-startup-id ~/.i3/scripts/polybar.sh
-exec --no-startup-id dropbox
+#exec --no-startup-id dropbox
 exec --no-startup-id nextcloud
 exec --no-startup-id udiskie -t
+exec --no-startup-id /opt/OpenDrive/odrive
 
 #--------#
 # COLORS #
