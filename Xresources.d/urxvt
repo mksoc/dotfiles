@@ -5,9 +5,6 @@ URxvt*letterSpace:                 0
 
 ! Colors
 URxvt.depth:                      32
-URxvt*background:                 BACKGROUND
-URxvt*cursorColor:                COLOR4
-URxvt*cursorColor2:               BACKGROUND
 
 ! Behavior
 URxvt*fading:                     10
