@@ -1,6 +1,7 @@
 ! Fonts
-XTerm*faceName:          Fixed
-XTerm*faceSize:          11
+!XTerm*faceName:          Fixed
+!XTerm*faceSize:          11
+XTerm*faceName:                 xft:UbuntuMono Nerd Font Mono:size=20
 
 ! Colors
 XTerm*pointerColor:               #1ABB9B

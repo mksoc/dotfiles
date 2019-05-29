@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-from glob import glob
 from pathlib import Path
 import os
 
@@ -12,10 +11,10 @@ def mkdir(path):
 
 def ask_user(question):
     while True:
-        choice = input('{} (Y/n): '.format(question))
-        if choice in ('', 'y', 'Y', 'yes', 'Yes', 'YES'):
+        choice = input('{} (y/N): '.format(question))
+        if choice in ('y', 'Y', 'yes', 'Yes', 'YES'):
             return True
-        elif choice in ('n', 'N', 'no', 'No', 'NO'):
+        elif choice in ('', 'n', 'N', 'no', 'No', 'NO'):
             return False
         else:
             print('Invalid option. Try again.')

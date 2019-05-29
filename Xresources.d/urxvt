@@ -1,9 +1,11 @@
 ! Fonts
-URxvt.font:                       xft:UbuntuMono Nerd Font Mono
+URxvt*font:                       xft:UbuntuMono Nerd Font Mono, xft:Symbola
+URxvt*letterSpace:                 0
+
 
 ! Colors
 URxvt.depth:                      32
-URxvt*background:                 [85]BACKGROUND
+URxvt*background:                 BACKGROUND
 URxvt*cursorColor:                COLOR4
 URxvt*cursorColor2:               BACKGROUND
 
