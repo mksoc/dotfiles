@@ -206,6 +206,7 @@ for_window [class="URxvt" instance="ufloat"] floating enable
 for_window [class="octave-gui" title="Figure*"] floating enable
 for_window [class="GNU Octave" title="Figure*"] floating enable
 for_window [class="odrive"] floating enable
+for_window [class="org.remmina.Remmina"] floating enable
 
 #-----------#
 # EXIT MODE #
@@ -277,7 +278,7 @@ exec_always --no-startup-id ~/.i3/scripts/polybar.sh
 exec --no-startup-id nextcloud
 exec --no-startup-id udiskie -t
 exec --no-startup-id /opt/OpenDrive/odrive
-exec --no-startup-id wal -R
+exec --no-startup-id wal -R -a 90
 
 #--------#
 # COLORS #
