@@ -180,8 +180,8 @@ bindsym $super+Shift+8 move container to workspace $ws8; workspace $ws8
 # ASSIGNMENTS #
 #-------------#
 # Open applications on specific workspaces
-assign [class="Firefox"] $ws2
-for_window [class="Firefox"] focus
+assign [class="firefox"] $ws2
+for_window [class="firefox"] focus
 assign [class="code"] $ws3
 for_window [class="code"] focus
 
