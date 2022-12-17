@@ -1,7 +1,0 @@
-! Behavior
-rofi.parse-hosts:         false
-rofi.parse-known-hosts:   false
-
-! Appearance
-rofi.font:                Ubuntu Mono 14
-rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
