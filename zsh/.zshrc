@@ -23,8 +23,10 @@ PROMPT='%B%F{cyan}%n@%m%f%b %F{242}%3~%f %B%(!.%(?.%F{green}#.%F{red}#).%(?.%F{g
 ###########
 # ALIASES #
 ###########
-alias     ll='ls -lahGFH'
-alias   grep='grep --color=auto'
+alias ll='ls -lahGFH'
+alias grep='grep --color=auto'
+alias free='free -h'
+alias df='df -h'
 
 #################
 # CUSTOM CONFIG #
