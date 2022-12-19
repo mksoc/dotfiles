@@ -3,6 +3,7 @@ setopt AUTO_CD
 
 # Expansion and globbing
 setopt NO_CASE_GLOB
+setopt GLOB_DOTS
 
 # History 
 HISTFILE=$HOME/.zsh_history
