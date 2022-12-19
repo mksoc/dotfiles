@@ -1,0 +1,13 @@
+# Completion for brew commands
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
+# Path to latest Python
+export PATH=/opt/homebrew/opt/python@3.11/libexec/bin:$PATH
+
+# Aliases
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
+alias cernvnc='/Applications/TigerVNC\ Viewer\ 1.11.0.app/Contents/MacOS/TigerVNC\ Viewer micgate02.cern.ch:84 -via lxtunnel'
+alias vncgivepass='read -s "?VNC password:" VNC_PASSWORD ; export VNC_PASSWORD'

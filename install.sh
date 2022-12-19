@@ -1,14 +1,37 @@
 #! /bin/zsh
 
 make_backup () {
-    if [ -f $HOME/$1 ]; then
-        mv $HOME/$1 $HOME/$1.bak
+    candidate=$HOME/$1
+    if [ -e $candidate ] && [ ! -L $candidate ]; then
+        mv $candidate $candidate.bak
     fi
 }
 
 # Create symlinks
+echo "Copying Zsh config..."
 make_backup .zshrc
-ln -s $(realpath ./.zshrc) $HOME
+ln -snf $(realpath ./zsh/.zshrc) $HOME
 
+case $1 in
+    mac)
+        make_backup .zshrc.mac
+        ln -snf $(realpath ./zsh/.zshrc.mac) $HOME
+        ;;
+
+    cern)
+        make_backup .zshrc.cern
+        ln -snf $(realpath ./zsh/.zshrc.cern) $HOME
+        ;;
+
+    server)
+        make_backup .zshrc.server
+        ln -snf $(realpath ./zsh/.zshrc.server) $HOME
+        ;;
+
+    *)
+        ;;
+esac
+
+echo "Copying Neovim config..."
 make_backup .config/nvim
-ln -s $(realpath ./nvim) $HOME/.config
+ln -snf $(realpath ./nvim) $HOME/.config
