@@ -1,3 +1,4 @@
 # Aliases
 alias public-ip='curl ipinfo.io/ip && echo'
 alias tg='telegram-send "$([ $? = 0 ] && echo "" || echo "error: ") $(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*tg$//'\'')"'
+alias python='python3'
