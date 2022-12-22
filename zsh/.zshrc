@@ -35,11 +35,6 @@ alias df='df -h'
 [ -f ~/.zshrc.cern ] && source ~/.zshrc.cern
 [ -f ~/.zshrc.server ] && source ~/.zshrc.server
 
-###########
-# PLUGINS #
-###########
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 ################
 # AUTOCOMPLETE #
 ################
