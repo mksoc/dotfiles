@@ -14,6 +14,7 @@ SAVEHIST=5000
 HISTSIZE=2000
 setopt APPEND_HISTORY # append to history
 setopt INC_APPEND_HISTORY # adds commands as they are typed, not at shell exit
+setopt HIST_IGNORE_ALL_DUPS
 
 ##########
 # PROMPT #
