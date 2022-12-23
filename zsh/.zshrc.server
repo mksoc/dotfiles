@@ -3,6 +3,9 @@ alias public-ip='curl ipinfo.io/ip && echo'
 alias tg='telegram-send "$([ $? = 0 ] && echo "" || echo "error: ") $(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*tg$//'\'')"'
 alias python='python3'
 
+alias docker_update='docker-compose pull && docker-compose up -d --remove-orphans && docker image prune'
+alias wg_show='docker exec -it wireguard wg'
+
 # Fzf
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
