@@ -4,8 +4,9 @@ then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
-# Path to latest Python
+# Custom PATH
 export PATH=/opt/homebrew/opt/python@3.11/libexec/bin:$PATH
+export PATH=/Users/Marco/.local/bin:$PATH
 
 # Aliases
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
