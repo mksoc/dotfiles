@@ -29,6 +29,12 @@ alias grep='grep --color=auto'
 alias free='free -h'
 alias df='df -h'
 
+alias gpl='git pull'
+alias gps='git push'
+alias gca='git commit -am'
+alias gcm='git commit -m'
+alias gst='git status'
+
 #################
 # CUSTOM CONFIG #
 #################
