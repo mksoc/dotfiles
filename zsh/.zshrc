@@ -29,6 +29,8 @@ alias grep='grep --color=auto'
 alias free='free -h'
 alias df='df -h'
 
+alias glg='git log --stat --max-count=10'
+alias glo='git log --oneline'
 alias gpl='git pull'
 alias gps='git push'
 alias gca='git commit -am'
@@ -45,6 +47,8 @@ alias gst='git status'
 ################
 # AUTOCOMPLETE #
 ################
+bindkey "^[[3~" delete-char
+
 zstyle ':completion:*' menu select=0
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' \
                                     '+l:|=* r:|=*'
