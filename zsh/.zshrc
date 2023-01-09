@@ -41,7 +41,7 @@ alias gst='git status'
 # CUSTOM CONFIG #
 #################
 [ -f ~/.zshrc.mac ] && source ~/.zshrc.mac
-[ -f ~/.zshrc.cern ] && source ~/.zshrc.cern
+[ -f /homedir/mandorno/zshrc.cern ] && source /homedir/mandorno/zshrc.cern
 [ -f ~/.zshrc.server ] && source ~/.zshrc.server
 
 ################
