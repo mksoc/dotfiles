@@ -24,7 +24,7 @@ PROMPT='%B%F{cyan}%n@%m%f%b %F{242}%3~%f %B%(!.%(?.%F{green}#.%F{red}#).%(?.%F{g
 ###########
 # ALIASES #
 ###########
-alias ll='ls -lahGFH --color=auto'
+alias ll='ls -lahFH --color=auto'
 alias grep='grep --color=auto'
 alias free='free -h'
 alias df='df -h'
@@ -36,12 +36,15 @@ alias gps='git push'
 alias gca='git commit -am'
 alias gcm='git commit -m'
 alias gst='git status'
+alias gbr='git branch'
+alias gco='git checkout'
+alias gma='git checkout master'
 
 #################
 # CUSTOM CONFIG #
 #################
 [ -f ~/.zshrc.mac ] && source ~/.zshrc.mac
-[ -f /homedir/mandorno/zshrc.cern ] && source /homedir/mandorno/zshrc.cern
+[ -f /homedir/mandorno/.zshrc.cern ] && source /homedir/mandorno/.zshrc.cern
 [ -f ~/.zshrc.server ] && source ~/.zshrc.server
 
 ################

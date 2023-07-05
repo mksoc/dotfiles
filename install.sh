@@ -35,3 +35,7 @@ esac
 echo "Copying Neovim config..."
 make_backup .config/nvim
 ln -snf $(realpath ./nvim) $HOME/.config
+
+echo "Copying Vim config..."
+make_backup .vimrc
+ln -snf $(realpath ./vim/.vimrc) $HOME
