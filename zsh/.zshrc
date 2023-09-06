@@ -46,6 +46,7 @@ alias gma='git checkout master'
 [ -f ~/.zshrc.mac ] && source ~/.zshrc.mac
 [ -f /homedir/mandorno/.zshrc.cern ] && source /homedir/mandorno/.zshrc.cern
 [ -f ~/.zshrc.server ] && source ~/.zshrc.server
+[ -f ~/.zshrc.cern-pc ] && source ~/.zshrc.cern-pc
 
 ################
 # AUTOCOMPLETE #
