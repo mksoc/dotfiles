@@ -44,7 +44,7 @@ alias gma='git checkout master'
 # CUSTOM CONFIG #
 #################
 [ -f ~/.zshrc.mac ] && source ~/.zshrc.mac
-[ -f /homedir/mandorno/.zshrc.cern ] && source /homedir/mandorno/.zshrc.cern
+[ -f /homedir/mandorno/.zshrc.cern-mic ] && source /homedir/mandorno/.zshrc.cern-mic
 [ -f ~/.zshrc.server ] && source ~/.zshrc.server
 [ -f ~/.zshrc.cern-pc ] && source ~/.zshrc.cern-pc
 

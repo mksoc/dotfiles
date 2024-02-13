@@ -14,7 +14,7 @@ alias lg="lazygit"
 alias devel65='/homedir/micdecm/DECM/bin/decm_go_project_noterm TSMC65 devel65 VCAD-9met-pdk-devel-CERN2019'
 alias devel28='/homedir/micdecm/DECM/bin/decm_go_project_noterm TSMC28 devel28 V09eval && /homedir/mandorno/bin/zsh'
 alias devel130='/homedir/micdecm/DECM/bin/decm_go_project_noterm TSMC130 eval130tsmc V7.0_PDK_CERN_v3.1_CERN2021'
-alias lnxmic7='ssh -X lnxmic7'
+alias amtest28='ssh -X amtest28'
 
 alias python='python3.11'
 alias pip='pip3'
