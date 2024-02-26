@@ -17,7 +17,6 @@ alias devel130='/homedir/micdecm/DECM/bin/decm_go_project_noterm TSMC130 eval130
 alias amtest28='ssh -X amtest28'
 
 alias python='python3.11'
-alias pip='pip3'
 
 # Fzf
 [ -f /homedir/mandorno/.fzf.zsh ] && source /homedir/mandorno/.fzf.zsh
