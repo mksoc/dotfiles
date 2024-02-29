@@ -17,7 +17,17 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 require("mappings")
 
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
+vim.opt.pumheight = 10
+
 vim.cmd("colorscheme kanagawa-wave")
 vim.opt.shell = "zsh"
 vim.opt.splitright = true
 vim.opt.clipboard = "unnamedplus"
+
+-- Disable comment continuation on new line
+vim.cmd('autocmd BufEnter * set formatoptions-=cro')
+vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
