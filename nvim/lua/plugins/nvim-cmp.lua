@@ -12,9 +12,11 @@ return {
 	},
     config = function()
         local cmp = require("cmp")
-        vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
         cmp.setup({
+            completion = {
+                completeopt = 'menu,menuone,noinsert'
+            },
             snippet = {
                 expand = function(args)
                     require("luasnip").lsp_expand(args.body)
@@ -24,7 +26,9 @@ return {
                 format = require("lspkind").cmp_format(),
             },
             mapping = cmp.mapping.preset.insert({
-                ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+                ["<CR>"]  = cmp.mapping.confirm({ select = true }),
+                ['<Esc>'] = cmp.mapping.close(),
             }),
             sources = {
                 { name = "nvim_lsp" },

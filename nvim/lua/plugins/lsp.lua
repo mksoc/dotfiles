@@ -5,6 +5,7 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+        "folke/neodev.nvim",
     },
     config = function()
         require("neodev").setup()

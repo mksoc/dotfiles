@@ -66,9 +66,15 @@ return {
 
     {
         "numToStr/Comment.nvim",
-        keys = {
-            { "gc", mode = { "n", "v" }, desc = "Comment toggle linewise" },
-            { "gb", mode = { "n", "v" }, desc = "Comment toggle blockwise" },
+    },
+    
+    {
+        "L3MON4D3/LuaSnip",
+        dependencies = {
+            "rafamadriz/friendly-snippets",
         },
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end,
     },
 }
