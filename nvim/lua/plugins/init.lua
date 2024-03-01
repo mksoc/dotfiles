@@ -17,6 +17,11 @@ return {
     },
 
     {
+        'folke/neodev.nvim',
+        dependencies = { 'hrsh7th/nvim-cmp' }
+    },
+
+    {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
@@ -49,9 +54,7 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
     },
 
-    {
-        "rebelot/kanagawa.nvim"
-    },
+    {"rebelot/kanagawa.nvim"},
 
     {
         'nvim-lualine/lualine.nvim',

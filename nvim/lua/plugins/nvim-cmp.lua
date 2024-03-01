@@ -11,7 +11,7 @@ return {
         "onsails/lspkind.nvim",
 	},
     config = function()
-            local cmp = require("cmp")
+        local cmp = require("cmp")
         vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
         cmp.setup({

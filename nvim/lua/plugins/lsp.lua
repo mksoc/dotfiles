@@ -20,11 +20,15 @@ return {
                 "lua_ls",
                 "pyright",
                 "verible",
-                -- "svls",
                 "clangd",
             },
             handlers = {
                 require("lsp-zero").default_setup,
+                verible = function()
+                    require("lspconfig").verible.setup({
+                        root_dir = function() return vim.loop.cwd() end
+                    })
+                end,
             },
         }
     end,
