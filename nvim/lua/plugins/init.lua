@@ -58,4 +58,9 @@ return {
     },
 
     {"vim-scripts/systemrdl.vim"},
+
+    {
+        "lewis6991/gitsigns.nvim",
+        opts = {},
+    },
 }
