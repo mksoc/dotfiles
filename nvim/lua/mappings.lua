@@ -4,8 +4,8 @@ vim.keymap.set("", "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("v",  "<Tab>", ">gv")
 vim.keymap.set("v",  "<S-Tab>", "<gv")
 vim.keymap.set("",  "<leader>Q", "<CMD>qa<CR>", { desc = "Quit" })
-vim.keymap.set("n",  "<leader>/", function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end, { desc = "Toggle comment line" })
-vim.keymap.set("v",  "<leader>/", "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { desc = "Toggle comment for selection" })
+-- vim.keymap.set("n",  "<leader>/", function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end, { desc = "Toggle comment line" })
+-- vim.keymap.set("v",  "<leader>/", "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { desc = "Toggle comment for selection" })
 
 -- Files
 function vim.getVisualSelection()
@@ -31,7 +31,6 @@ vim.keymap.set("v", "<leader>fg", function() tb.current_buffer_fuzzy_find({ defa
 vim.keymap.set("n", "<leader>fG", function() tb.live_grep() end, { desc = "Live grep" })
 vim.keymap.set("v", "<leader>fG", function() tb.live_grep({ default_text = vim.getVisualSelection() }) end, { desc = "Live grep" })
 vim.keymap.set("",  "<leader>fb", function() require("telescope").extensions.file_browser.file_browser() end, { desc = "File browser" })
--- vim.keymap.set("",  "<leader>fb", function() require("telescope").extensions.file_browser.file_browser({path = "%:p:h", select_buffer = true}) end, { desc = "File browser" })
 
 -- Buffers
 vim.keymap.set("",  "<leader>w", "<CMD>w<CR>", { desc = "Save" })

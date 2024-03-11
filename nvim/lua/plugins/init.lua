@@ -17,8 +17,9 @@ return {
     },
 
     {
-        'folke/neodev.nvim',
-        dependencies = { 'hrsh7th/nvim-cmp' }
+        "kylechui/nvim-surround",
+        event = "VeryLazy",
+        opts = {},
     },
 
     {
@@ -32,13 +33,18 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function()
-            require("lualine").setup()
-        end,
+        opts = {
+            sections = {
+                lualine_c = {{'filename', path = 1}},
+            },
+        },
     },
 
     {
         "numToStr/Comment.nvim",
+        opts = {
+            mappings = {basic = true},
+        },
     },
 
     {
