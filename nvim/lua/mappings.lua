@@ -31,6 +31,7 @@ vim.keymap.set("v", "<leader>fg", function() tb.current_buffer_fuzzy_find({ defa
 vim.keymap.set("n", "<leader>fG", function() tb.live_grep() end, { desc = "Live grep" })
 vim.keymap.set("v", "<leader>fG", function() tb.live_grep({ default_text = vim.getVisualSelection() }) end, { desc = "Live grep" })
 vim.keymap.set("",  "<leader>fb", function() require("telescope").extensions.file_browser.file_browser() end, { desc = "File browser" })
+-- vim.keymap.set("",  "<leader>fb", function() require("telescope").extensions.file_browser.file_browser({path = "%:p:h", select_buffer = true}) end, { desc = "File browser" })
 
 -- Buffers
 vim.keymap.set("",  "<leader>w", "<CMD>w<CR>", { desc = "Save" })

@@ -34,3 +34,23 @@ vim.opt.clipboard = "unnamedplus"
 -- Disable comment continuation on new line
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
+
+-- Set filetype for SystemRDL
+local group = vim.api.nvim_create_augroup('systemrdl_ft', { clear = true })
+
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+    pattern = '*.rdl',
+    callback = function()
+        vim.cmd('set syntax=systemrdl')
+    end,
+    group = group,
+})
+
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+    pattern = '*.rdl',
+    callback = function()
+        vim.cmd('set filetype=systemrdl')
+    end,
+    group = group,
+})
+

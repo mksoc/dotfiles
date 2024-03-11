@@ -25,11 +25,13 @@ return {
             formatting = {
                 format = require("lspkind").cmp_format(),
             },
-            mapping = cmp.mapping.preset.insert({
-                ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-                ["<CR>"]  = cmp.mapping.confirm({ select = true }),
-                ['<Esc>'] = cmp.mapping.close(),
-            }),
+            mapping = {
+                ["<Tab>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i', 'c' }),
+                ["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i' }),
+                ["<Right>"] = cmp.mapping(cmp.mapping.close(), { 'i', 'c' }),
+                ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+                ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+            },
             sources = {
                 { name = "nvim_lsp" },
                 { name = "nvim_lua" },
@@ -41,7 +43,6 @@ return {
 
         -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
         cmp.setup.cmdline(':', {
-            mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
                 { name = 'path' }
             }, {
