@@ -23,14 +23,13 @@ require("mappings")
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-
 vim.opt.pumheight = 10
-
 vim.cmd("colorscheme kanagawa-wave")
 vim.opt.shell = "zsh"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.cursorline = true
 
 -- Disable comment continuation on new line
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
