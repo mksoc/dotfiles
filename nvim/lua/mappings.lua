@@ -37,6 +37,14 @@ vim.keymap.set("",  "<leader>bn", "<CMD>bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("",  "<leader>bp", "<CMD>bprev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<Tab>", "<CMD>b#<CR>", { desc = "Recent buffer" })
 
+-- Windows
+vim.keymap.set("", "<leader>v", "<CMD>vnew<CR>", { desc = "New vertical split" })
+vim.keymap.set("", "<leader>h", "<CMD>new<CR>", { desc = "New horizontal split" })
+vim.keymap.set("", "<C-Left>", "<C-W><C-H>", { desc = "Go to windows on the left" })
+vim.keymap.set("", "<C-Down>", "<C-W><C-J>", { desc = "Go to windows below" })
+vim.keymap.set("", "<C-Up>", "<C-W><C-K>", { desc = "Go to windows above" })
+vim.keymap.set("", "<C-Right>", "<C-W><C-L>", { desc = "Go to windows on the right" })
+
 -- Git
 local gs = require("gitsigns")
 

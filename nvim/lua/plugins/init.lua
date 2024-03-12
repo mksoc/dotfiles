@@ -9,24 +9,16 @@ return {
         config = function()
             local wk = require("which-key")
             wk.register({
-              ["<leader>f"] = { name = "File/find" },
-              ["<leader>b"] = { name = "Buffers" },
-              ["<leader>g"] = { name = "Git" },
+                ["<leader>f"] = { name = "File/find" },
+                ["<leader>b"] = { name = "Buffers" },
+                ["<leader>g"] = { name = "Git" },
             })
         end,
     },
 
-    {
-        "kylechui/nvim-surround",
-        event = "VeryLazy",
-        opts = {},
-    },
+    { "kylechui/nvim-surround", event = "VeryLazy", opts = {}, },
 
-    {
-        "kdheepak/lazygit.nvim",
-        -- optional for floating window border decoration
-        dependencies = { "nvim-lua/plenary.nvim" },
-    },
+    { "kdheepak/lazygit.nvim", dependencies = { "nvim-lua/plenary.nvim" }, },
 
     {"rebelot/kanagawa.nvim"},
 
@@ -59,8 +51,14 @@ return {
 
     {"vim-scripts/systemrdl.vim"},
 
-    {
-        "lewis6991/gitsigns.nvim",
-        opts = {},
+    { "lewis6991/gitsigns.nvim", opts = {}, },
+
+    { "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {
+            indent =  {
+                char = "▏",
+            },
+        },
     },
 }

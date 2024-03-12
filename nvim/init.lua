@@ -29,6 +29,7 @@ vim.opt.pumheight = 10
 vim.cmd("colorscheme kanagawa-wave")
 vim.opt.shell = "zsh"
 vim.opt.splitright = true
+vim.opt.splitbelow = true
 vim.opt.clipboard = "unnamedplus"
 
 -- Disable comment continuation on new line
@@ -54,3 +55,5 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
     group = group,
 })
 
+local ft = require("Comment.ft")
+ft({"systemrdl"}, ft.get("c"))
