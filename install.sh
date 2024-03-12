@@ -36,3 +36,11 @@ case $1 in
     *)
         ;;
 esac
+
+echo "Copying Neovim config..."
+make_backup .config/nvim
+ln -snf $(realpath ./nvim) $HOME/.config
+
+echo "Copying WezTerm config..."
+make_backup .wezterm.lua
+ln -snf $(realpath ./.wezterm.lua) $HOME
