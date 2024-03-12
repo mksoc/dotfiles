@@ -3,7 +3,8 @@ return {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
-            local fb_actions = require "telescope".extensions.file_browser.actions
+            local fb_actions = require("telescope").extensions.file_browser.actions
+            local actions = require("telescope.actions")
             require("telescope").setup {
                 defaults = {
                   sorting_strategy = "ascending",
@@ -20,7 +21,7 @@ return {
                     mappings = {
                         ["i"] = {
                             ["<Left>"] = fb_actions.backspace,
-                            ["<Right>"] = fb_actions.open,
+                            ["<Right>"] = actions.select_default,
                         },
                     }
                   },
