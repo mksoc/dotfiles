@@ -26,10 +26,6 @@ local tb = require("telescope.builtin")
 vim.keymap.set("",  "<leader>ff", function() tb.find_files() end, { desc = "Find files" })
 vim.keymap.set("",  "<leader>fh", function() tb.oldfiles() end, { desc = "Open recent" })
 vim.keymap.set("",  "<leader>fc", function() tb.grep_string() end, { desc = "Find word under cursor" })
-vim.keymap.set("n", "<leader>fg", function() tb.current_buffer_fuzzy_find() end, { desc = "Fuzzy find in current buffer" })
-vim.keymap.set("v", "<leader>fg", function() tb.current_buffer_fuzzy_find({ default_text = vim.getVisualSelection() }) end, { desc = "Fuzzy find in current buffer" })
-vim.keymap.set("n", "<leader>fG", function() tb.live_grep() end, { desc = "Live grep" })
-vim.keymap.set("v", "<leader>fG", function() tb.live_grep({ default_text = vim.getVisualSelection() }) end, { desc = "Live grep" })
 vim.keymap.set("",  "<leader>fb", function() require("telescope").extensions.file_browser.file_browser() end, { desc = "File browser" })
 
 -- Buffers
@@ -57,3 +53,10 @@ vim.keymap.set("", "<leader>gb", function() gs.blame_line() end, { desc = "Show 
 vim.keymap.set("", "<leader>gp", function() gs.preview_hunk_inline() end, { desc = "Preview hunk" })
 vim.keymap.set("", "<leader>gh", function() gs.reset_hunk() end, { desc = "Reset hunk" })
 vim.keymap.set("", "<leader>gd", function() gs.diff() end, { desc = "Git diff" })
+
+-- Search and replace
+vim.keymap.set("n", "<ESC>", "<CMD>:noh<CR>", { desc = "Cancel highlighting" })
+vim.keymap.set("n", "<leader>fg", function() tb.current_buffer_fuzzy_find() end, { desc = "Fuzzy find in current buffer" })
+vim.keymap.set("v", "<leader>fg", function() tb.current_buffer_fuzzy_find({ default_text = vim.getVisualSelection() }) end, { desc = "Fuzzy find in current buffer" })
+vim.keymap.set("n", "<leader>fG", function() tb.live_grep() end, { desc = "Live grep" })
+vim.keymap.set("v", "<leader>fG", function() tb.live_grep({ default_text = vim.getVisualSelection() }) end, { desc = "Live grep" })
