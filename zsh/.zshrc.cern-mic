@@ -1,5 +1,6 @@
 # Custom PATH
 export PATH=/usr/bin:$PATH
+export PATH=/cerneda/utils/gcc/gcc-12.2.0/x86_64-centos7/bin:$PATH
 export PATH=/cerneda/utils/git/2.32/bin:$PATH
 export GIT_EXEC_PATH=/cerneda/utils/git/2.32/libexec/git-core
 export PATH=/cerneda/various/RHELx86/gtkwave-3.4.0/bin/:$PATH
