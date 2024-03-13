@@ -23,12 +23,23 @@ return {
                 "pyright",
                 "verible",
                 "clangd",
+                "cmake",
             },
             handlers = {
                 require("lsp-zero").default_setup,
                 verible = function()
                     require("lspconfig").verible.setup({
                         root_dir = function() return vim.loop.cwd() end
+                    })
+                end,
+                cmake = function()
+                    require("lspconfig").cmake.setup({
+                        cmd = {"cmake-language-server"},
+                        filetypes = {"cmake"},
+                        -- on_attach = custom_attach,
+                        init_options = {
+                            buildDirectory = "build/"
+                        }
                     })
                 end,
             },

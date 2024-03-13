@@ -3,28 +3,47 @@ return {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
-            local fb_actions = require("telescope").extensions.file_browser.actions
             local actions = require("telescope.actions")
+            local fb_actions = require("telescope").extensions.file_browser.actions
             require("telescope").setup {
                 defaults = {
-                  sorting_strategy = "ascending",
-                  layout_strategy = "horizontal",
-                  layout_config = {
-                    prompt_position = "top",
-                  },
+                    sorting_strategy = "ascending",
+                    layout_strategy = "horizontal",
+                    layout_config = {
+                        prompt_position = "top",
+                    },
+                },
+                pickers = {
+                    find_files = {
+                        find_command = {
+                            "rg", "--files",
+                            "--hidden", "--no-ignore-vcs",
+                            "-g", "!**/.git/*",
+                            "-g", "!**/node_modules/*",
+                            "-g", "!**/.repro/*", -- just to hide .repro rtp
+                        },
+                    },
+                    live_grep = {
+                        additional_args = {
+                            "--hidden", "--no-ignore-vcs",
+                            "-g", "!**/.git/*",
+                            "-g", "!**/node_modules/*",
+                            "-g", "!**/.repro/*", -- just to hide .repro rtp
+                        },
+                    },
                 },
                 extensions = {
-                  file_browser = {
-                    path = "%:p:h",
-                    hijack_netrw = true,
-                    prompt_path = true,
-                    mappings = {
-                        ["i"] = {
-                            ["<Left>"] = fb_actions.backspace,
-                            ["<Right>"] = actions.select_default,
-                        },
-                    }
-                  },
+                    file_browser = {
+                        path = "%:p:h",
+                        hijack_netrw = true,
+                        prompt_path = true,
+                        mappings = {
+                            ["i"] = {
+                                ["<Left>"] = fb_actions.backspace,
+                                ["<Right>"] = actions.select_default,
+                            },
+                        }
+                    },
                 },
             }
             require("telescope").load_extension "file_browser"

@@ -29,7 +29,6 @@ vim.opt.shell = "zsh"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.clipboard = "unnamedplus"
-vim.opt.cursorline = true
 
 -- Disable comment continuation on new line
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
