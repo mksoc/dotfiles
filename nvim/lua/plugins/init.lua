@@ -72,4 +72,6 @@ return {
             },
         },
     },
+
+    {"gabrielpoca/replacer.nvim"},
 }

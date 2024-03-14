@@ -22,10 +22,12 @@ function vim.getVisualSelection()
 end
 
 local tb = require("telescope.builtin")
+local tm = require('telescope').extensions.menufacture
+local tf = require("telescope").extensions.file_browser
 
-vim.keymap.set("",  "<leader>ff", function() tb.find_files() end, { desc = "Find files" })
+vim.keymap.set("",  "<leader>ff", function() tm.find_files() end, { desc = "Find files" })
 vim.keymap.set("",  "<leader>fh", function() tb.oldfiles() end, { desc = "Open recent" })
-vim.keymap.set("",  "<leader>fb", function() require("telescope").extensions.file_browser.file_browser() end, { desc = "File browser" })
+vim.keymap.set("",  "<leader>fb", function() tf.file_browser() end, { desc = "File browser" })
 
 -- Buffers
 vim.keymap.set("",  "<leader>w", "<CMD>w<CR>", { desc = "Save" })
@@ -63,8 +65,9 @@ vim.keymap.set("", "<leader>gd", function() gs.diff() end, { desc = "Git diff" }
 
 -- Search and replace
 vim.keymap.set("n", "<ESC>", "<CMD>:noh<CR>", { desc = "Cancel highlighting" })
-vim.keymap.set("",  "<leader>fc", function() tb.grep_string() end, { desc = "Find word under cursor" })
+vim.keymap.set("",  "<leader>fc", function() tm.grep_string() end, { desc = "Find word under cursor" })
 vim.keymap.set("n", "<leader>fg", function() tb.current_buffer_fuzzy_find() end, { desc = "Fuzzy find in current buffer" })
 vim.keymap.set("v", "<leader>fg", function() tb.current_buffer_fuzzy_find({ default_text = vim.getVisualSelection() }) end, { desc = "Fuzzy find in current buffer" })
-vim.keymap.set("n", "<leader>fG", function() tb.live_grep() end, { desc = "Live grep" })
-vim.keymap.set("v", "<leader>fG", function() tb.live_grep({ default_text = vim.getVisualSelection() }) end, { desc = "Live grep" })
+vim.keymap.set("n", "<leader>fG", function() tm.live_grep() end, { desc = "Live grep" })
+vim.keymap.set("v", "<leader>fG", function() tm.live_grep({ default_text = vim.getVisualSelection() }) end, { desc = "Live grep" })
+vim.keymap.set("n", "<leader>h", function() require("replacer").run() end, { desc = "Replacer" })
