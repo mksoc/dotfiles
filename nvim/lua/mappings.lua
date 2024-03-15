@@ -1,13 +1,4 @@
-vim.keymap.set("", "<Space>", "<Nop>", { silent = true })
-
--- General keymaps
-vim.keymap.set("v",  "<Tab>", ">gv")
-vim.keymap.set("v",  "<S-Tab>", "<gv")
-vim.keymap.set("",  "<leader>Q", "<CMD>qa<CR>", { desc = "Quit" })
--- vim.keymap.set("n",  "<leader>/", function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end, { desc = "Toggle comment line" })
--- vim.keymap.set("v",  "<leader>/", "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { desc = "Toggle comment for selection" })
-
--- Files
+-- Utility functions
 function vim.getVisualSelection()
     vim.cmd('noau normal! "vy"')
     local text = vim.fn.getreg('v')
@@ -21,6 +12,22 @@ function vim.getVisualSelection()
     end
 end
 
+local function concat(t1, t2)
+    for key, val in pairs(t2) do
+        t1[key] = val
+    end
+    return t1
+end
+
+
+vim.keymap.set("", "<Space>", "<Nop>", { silent = true })
+
+-- General keymaps
+vim.keymap.set("v",  "<Tab>", ">gv")
+vim.keymap.set("v",  "<S-Tab>", "<gv")
+vim.keymap.set("",  "<leader>Q", "<CMD>qa<CR>", { desc = "Quit" })
+
+-- Files
 local tb = require("telescope.builtin")
 local tm = require('telescope').extensions.menufacture
 local tf = require("telescope").extensions.file_browser
@@ -64,10 +71,18 @@ vim.keymap.set("", "<leader>gr", function() gs.reset_hunk() end, { desc = "Reset
 vim.keymap.set("", "<leader>gd", function() gs.diff() end, { desc = "Git diff" })
 
 -- Search and replace
+local lg_args = {
+    additional_args = {
+        "-g", "!**/.git/*",
+        "-g", "!**/node_modules/*",
+        "-g", "!**/.repro/*", -- just to hide .repro rtp
+    }
+}
+
 vim.keymap.set("n", "<ESC>", "<CMD>:noh<CR>", { desc = "Cancel highlighting" })
 vim.keymap.set("",  "<leader>fc", function() tm.grep_string() end, { desc = "Find word under cursor" })
 vim.keymap.set("n", "<leader>fg", function() tb.current_buffer_fuzzy_find() end, { desc = "Fuzzy find in current buffer" })
 vim.keymap.set("v", "<leader>fg", function() tb.current_buffer_fuzzy_find({ default_text = vim.getVisualSelection() }) end, { desc = "Fuzzy find in current buffer" })
-vim.keymap.set("n", "<leader>fG", function() tm.live_grep() end, { desc = "Live grep" })
-vim.keymap.set("v", "<leader>fG", function() tm.live_grep({ default_text = vim.getVisualSelection() }) end, { desc = "Live grep" })
+vim.keymap.set("n", "<leader>fG", function() tm.live_grep(lg_args) end, { desc = "Live grep" })
+vim.keymap.set("v", "<leader>fG", function() tm.live_grep(concat(lg_args, { default_text = vim.getVisualSelection() })) end, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>h", function() require("replacer").run() end, { desc = "Replacer" })

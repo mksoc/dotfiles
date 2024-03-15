@@ -12,20 +12,17 @@ return {
                     layout_config = {
                         prompt_position = "top",
                     },
+                    mappings = {
+                            ["i"] = {
+                                ["<S-Down>"] = actions.cycle_history_next,
+                                ["<S-Up>"] = actions.cycle_history_prev,
+                            },
+                        },
                 },
                 pickers = {
                     find_files = {
                         find_command = {
                             "rg", "--files",
-                            "--hidden",
-                            "-g", "!**/.git/*",
-                            "-g", "!**/node_modules/*",
-                            "-g", "!**/.repro/*", -- just to hide .repro rtp
-                        },
-                    },
-                    live_grep = {
-                        additional_args = {
-                            "--hidden",
                             "-g", "!**/.git/*",
                             "-g", "!**/node_modules/*",
                             "-g", "!**/.repro/*", -- just to hide .repro rtp
@@ -46,8 +43,8 @@ return {
                     },
                     menufacture = {
                         mappings = {
-                            main_menu = { [{ 'i', 'n' }] = '<C-^>' },
-                            toggle_no_ignore = { [{ 'i', 'n' }] = '<C-i>' },
+                            toggle_no_ignore = { [{ 'i', 'n' }] = '<C-g>' },
+                            toggle_hidden = { [{ 'i', 'n' }] = '<C-h>' },
                             search_relative_to_current_buffer = { [{ 'i', 'n' }] = '<C-r>' },
                         },
                     },
