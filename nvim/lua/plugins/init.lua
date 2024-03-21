@@ -3,8 +3,8 @@ return {
         "folke/which-key.nvim",
         event = "VeryLazy",
         init = function()
-          vim.o.timeout = true
-          vim.o.timeoutlen = 300
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
         end,
         config = function()
             local wk = require("which-key")
@@ -16,7 +16,11 @@ return {
         end,
     },
 
-    { "kylechui/nvim-surround", event = "VeryLazy", opts = {}, },
+    {
+        "kylechui/nvim-surround",
+        event = "VeryLazy",
+        opts = {},
+    },
 
     { "kdheepak/lazygit.nvim", dependencies = { "nvim-lua/plenary.nvim" }, },
 
@@ -26,8 +30,8 @@ return {
             overrides = function(colors)
                 local theme = colors.theme
                 return {
-                   -- CurSearch = { fg = theme.ui.fg, bg = theme.ui.bg_p1, bold = true },
-                   Search = { fg = theme.ui.fg, bg = theme.ui.nontext },
+                    -- CurSearch = { fg = theme.ui.fg, bg = theme.ui.bg_p1, bold = true },
+                    Search = { fg = theme.ui.fg, bg = theme.ui.nontext },
                 }
             end,
         },
@@ -39,6 +43,11 @@ return {
         opts = {
             sections = {
                 lualine_c = {{'filename', path = 1}},
+            },
+            options = {
+                -- disabling section separators fixes
+                -- the disappearing start screen issue
+                section_separators = '',
             },
         },
     },
@@ -65,13 +74,13 @@ return {
     { "lewis6991/gitsigns.nvim", opts = {}, },
 
     { "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        opts = {
-            indent =  {
-                char = "▏",
-            },
+    main = "ibl",
+    opts = {
+        indent =  {
+            char = "▏",
         },
     },
+},
 
     {"gabrielpoca/replacer.nvim"},
 }

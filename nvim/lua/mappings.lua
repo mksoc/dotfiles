@@ -85,4 +85,4 @@ vim.keymap.set("n", "<leader>fg", function() tb.current_buffer_fuzzy_find() end,
 vim.keymap.set("v", "<leader>fg", function() tb.current_buffer_fuzzy_find({ default_text = vim.getVisualSelection() }) end, { desc = "Fuzzy find in current buffer" })
 vim.keymap.set("n", "<leader>fG", function() tm.live_grep(lg_args) end, { desc = "Live grep" })
 vim.keymap.set("v", "<leader>fG", function() tm.live_grep(concat(lg_args, { default_text = vim.getVisualSelection() })) end, { desc = "Live grep" })
-vim.keymap.set("n", "<leader>h", function() require("replacer").run() end, { desc = "Replacer" })
+vim.keymap.set("n", "<leader>fr", function() require("replacer").run() end, { desc = "Replacer" })
