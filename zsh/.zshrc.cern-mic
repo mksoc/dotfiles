@@ -6,6 +6,8 @@ export GIT_EXEC_PATH=/cerneda/utils/git/2.32/libexec/git-core
 export PATH=/cerneda/various/RHELx86/gtkwave-3.4.0/bin/:$PATH
 export PATH=/homedir/mandorno/.local/bin:$PATH
 export PATH=/homedir/mandorno/.cargo/bin:$PATH
+
+export PYTHONPATH=/homedir/mandorno/.local/lib/python3.11/site-packages:$PYTHONPATH
  
 # Aliases
 alias tgz="tar zxvf"
@@ -15,8 +17,6 @@ alias lg="lazygit"
 alias devel65='/homedir/micdecm/DECM/bin/decm_go_project_noterm TSMC65 devel65 VCAD-9met-pdk-devel-CERN2019'
 alias devel28='/homedir/micdecm/DECM/bin/decm_go_project_noterm TSMC28 devel28 V09eval && /homedir/mandorno/bin/zsh'
 alias devel130='/homedir/micdecm/DECM/bin/decm_go_project_noterm TSMC130 eval130tsmc V7.0_PDK_CERN_v3.1_CERN2021'
-
-alias python='python3.11'
 
 # Fzf
 [ -f /homedir/mandorno/.fzf.zsh ] && source /homedir/mandorno/.fzf.zsh

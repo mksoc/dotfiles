@@ -33,6 +33,11 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.shortmess:append({ I = true })
 vim.opt.updatetime = 500
 
+-- Python3 executable
+-- local pythonPath = vim.fn.system('which python3')
+-- pythonPath = pythonPath:gsub("%s+", "")
+-- vim.g.python3_host_prog = pythonPath
+
 -- Highlight word under cursor with LSP
 local function highlight_symbol(event)
     local id = vim.tbl_get(event, 'data', 'client_id')
@@ -90,10 +95,10 @@ local ft = require("Comment.ft")
 ft({ "systemrdl" }, ft.get("c"))
 
 -- Set filetype for Jinja
-vim.filetype.add {
-    extension = {
-        jinja = 'jinja',
-        jinja2 = 'jinja',
-        j2 = 'jinja',
-    },
-}
+-- vim.filetype.add {
+--     extension = {
+--         jinja = 'jinja',
+--         jinja2 = 'jinja',
+--         j2 = 'jinja',
+--     },
+-- }

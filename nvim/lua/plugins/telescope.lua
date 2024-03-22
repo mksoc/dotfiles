@@ -14,7 +14,11 @@ return {
                         prompt_position = "top",
                     },
                     mappings = {
-                            ["i"] = {
+                            i = {
+                                ["<S-Down>"] = actions.cycle_history_next,
+                                ["<S-Up>"] = actions.cycle_history_prev,
+                            },
+                            n = {
                                 ["<S-Down>"] = actions.cycle_history_next,
                                 ["<S-Up>"] = actions.cycle_history_prev,
                             },
@@ -35,8 +39,16 @@ return {
                         path = "%:p:h",
                         hijack_netrw = true,
                         prompt_path = true,
+                        hidden = {
+                            file_browser = true,
+                            folder_browser = true
+                        },
                         mappings = {
-                            ["i"] = {
+                            i = {
+                                ["<Left>"] = fb_actions.backspace,
+                                ["<Right>"] = actions.select_default,
+                            },
+                            n = {
                                 ["<Left>"] = fb_actions.backspace,
                                 ["<Right>"] = actions.select_default,
                             },
