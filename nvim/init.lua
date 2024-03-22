@@ -20,12 +20,12 @@ require("lazy").setup("plugins")
 require("mappings")
 
 -- Basic options
+vim.cmd.colorscheme("kanagawa-wave")
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.pumheight = 10
 vim.opt.scrolloff = 10
-vim.cmd("colorscheme kanagawa-wave")
 vim.opt.shell = "zsh"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
@@ -88,3 +88,12 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
 
 local ft = require("Comment.ft")
 ft({ "systemrdl" }, ft.get("c"))
+
+-- Set filetype for Jinja
+vim.filetype.add {
+    extension = {
+        jinja = 'jinja',
+        jinja2 = 'jinja',
+        j2 = 'jinja',
+    },
+}
