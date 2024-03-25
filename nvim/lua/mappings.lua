@@ -39,15 +39,15 @@ vim.keymap.set("",  "<leader>fb", function() tf.file_browser() end, { desc = "Fi
 -- Buffers
 vim.keymap.set("",  "<leader>w", "<CMD>w<CR>", { desc = "Save" })
 vim.keymap.set("",  "<leader>W", "<CMD>wa<CR>", { desc = "Save all" })
-vim.keymap.set("",  "<leader>bd", "<CMD>bd<CR>", { desc = "Close buffer" })
+vim.keymap.set("",  "<leader>bd", "<CMD>Bdelete<CR>", { desc = "Close buffer" })
 vim.keymap.set("",  "<leader>bb", function() tb.buffers() end, { desc = "List open buffers" })
-vim.keymap.set("",  "<leader>bn", "<CMD>bnext<CR>", { desc = "Next buffer" })
-vim.keymap.set("",  "<leader>bp", "<CMD>bprev<CR>", { desc = "Previous buffer" })
-vim.keymap.set("n", "<Tab>", "<CMD>b#<CR>", { desc = "Recent buffer" })
+vim.keymap.set("",  "]b", "<CMD>bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("",  "[b", "<CMD>bprev<CR>", { desc = "Previous buffer" })
 
 -- Windows
 vim.keymap.set("", "<leader>v", "<CMD>vnew<CR>", { desc = "New vertical split" })
 vim.keymap.set("", "<leader>h", "<CMD>new<CR>", { desc = "New horizontal split" })
+vim.keymap.set("", "<leader>dd", "<CMD>q<CR>", { desc = "Close window" })
 vim.keymap.set("", "<C-Left>", "<C-W><C-H>", { desc = "Go to windows on the left" })
 vim.keymap.set("", "<C-Down>", "<C-W><C-J>", { desc = "Go to windows below" })
 vim.keymap.set("", "<C-Up>", "<C-W><C-K>", { desc = "Go to windows above" })
@@ -86,3 +86,31 @@ vim.keymap.set("v", "<leader>fg", function() tb.current_buffer_fuzzy_find({ defa
 vim.keymap.set("n", "<leader>fG", function() tm.live_grep(lg_args) end, { desc = "Live grep" })
 vim.keymap.set("v", "<leader>fG", function() tm.live_grep(concat(lg_args, { default_text = vim.getVisualSelection() })) end, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>fr", function() require("replacer").run() end, { desc = "Replacer" })
+
+-- LSP
+-- note: diagnostics are not exclusive to lsp servers
+-- so these can be global keybindings
+vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', { desc = "Diagnostics: open" })
+vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', { desc = "Next diagnostic" })
+vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', { desc = "Previous diagnostic" })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function(event)
+    local opts = {buffer = event.buf}
+
+    -- these will be buffer-local keybindings
+    -- because they only work if you have an active language server
+
+    vim.keymap.set('n', 'K', '<CMD>lua vim.lsp.buf.hover()<CR>', concat(opts, { desc = "Hover" }))
+    vim.keymap.set('n', 'gd', '<CMD>lua vim.lsp.buf.definition()<CR>', concat(opts, { desc = "Go to definition" }))
+    vim.keymap.set('n', 'gD', '<CMD>lua vim.lsp.buf.declaration()<CR>', concat(opts, { desc = "Go to declaration" }))
+    vim.keymap.set('n', 'gi', '<CMD>lua vim.lsp.buf.implementation()<CR>', concat(opts, { desc = "Go to implementation" }))
+    vim.keymap.set('n', 'go', '<CMD>lua vim.lsp.buf.type_definition()<CR>', concat(opts, { desc = "Go to type definition" }))
+    vim.keymap.set('n', 'gr', function() tb.lsp_references() end, concat(opts, { desc = "List references" }))
+    vim.keymap.set('n', 'gs', '<CMD>lua vim.lsp.buf.signature_help()<CR>', concat(opts, { desc = "Go to definition" }))
+    vim.keymap.set('n', '<F2>', '<CMD>lua vim.lsp.buf.rename()<CR>', concat(opts, { desc = "Rename" }))
+    vim.keymap.set({'n', 'x'}, '<F3>', '<CMD>lua vim.lsp.buf.format({async = true})<CR>', concat(opts, { desc = "Format" }))
+    vim.keymap.set('n', '<F4>', '<CMD>lua vim.lsp.buf.code_action()<CR>', concat(opts, { desc = "Code action" }))
+  end
+})

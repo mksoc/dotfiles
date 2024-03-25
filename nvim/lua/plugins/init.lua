@@ -1,4 +1,6 @@
 return {
+    {"moll/vim-bbye"},
+
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -30,7 +32,6 @@ return {
             overrides = function(colors)
                 local theme = colors.theme
                 return {
-                    -- CurSearch = { fg = theme.ui.fg, bg = theme.ui.bg_p1, bold = true },
                     Search = { fg = theme.ui.fg, bg = theme.ui.nontext },
                 }
             end,

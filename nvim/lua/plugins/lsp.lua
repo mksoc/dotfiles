@@ -1,16 +1,21 @@
 return {
-    'VonHeikemen/lsp-zero.nvim',
+    "neovim/nvim-lspconfig",
     branch = 'v3.x',
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
         "folke/neodev.nvim",
+        "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-        local lsp0 = require("lsp-zero")
         local lspconfig = require("lspconfig")
         local util = require("lspconfig/util")
+        local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+        local default_setup = function(server)
+            require('lspconfig')[server].setup({
+                capabilities = lsp_capabilities,
+            })
+        end
 
         require("neodev").setup()
         require('mason').setup()
@@ -23,10 +28,11 @@ return {
                 "pyright",
             },
             handlers = {
-                lsp0.default_setup,
+                default_setup,
 
                 pyright = function()
                     lspconfig.pyright.setup({
+                        capabilities = lsp_capabilities,
                         root_dir = function(fname)
                             return util.root_pattern("pyproject.toml")(fname) or
                             util.path.dirname(fname)
@@ -36,12 +42,14 @@ return {
 
                 verible = function()
                     lspconfig.verible.setup({
+                        capabilities = lsp_capabilities,
                         root_dir = function() return vim.loop.cwd() end
                     })
                 end,
 
                 cmake = function()
                     lspconfig.cmake.setup({
+                        capabilities = lsp_capabilities,
                         cmd = {"cmake-language-server"},
                         filetypes = {"cmake"},
                         -- on_attach = custom_attach,
@@ -52,11 +60,12 @@ return {
                 end,
             },
         })
-
-        lsp0.on_attach(function(_, bufnr)
-            -- see :help lsp-zero-keybindings
-            -- to learn the available actions
-            lsp0.default_keymaps({buffer = bufnr})
-        end)
     end,
+    vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = false,
+    })
 }
