@@ -10,6 +10,7 @@ export PATH=/homedir/mandorno/.cargo/bin:$PATH
 export PYTHONPATH=/homedir/mandorno/.local/lib/python3.11/site-packages:$PYTHONPATH
  
 # Aliases
+alias nvim='env TERM=wezterm nvim'
 alias tgz="tar zxvf"
 alias innovus="innovus -stylus"
 alias lg="lazygit"
