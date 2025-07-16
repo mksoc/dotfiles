@@ -1,8 +1,6 @@
 ###############
 # ZSH OPTIONS #
 ###############
-# Changing directories
-setopt AUTO_CD
 
 # Expansion and globbing
 setopt NO_CASE_GLOB
@@ -54,8 +52,9 @@ alias gma='git checkout master'
 bindkey "^[[3~" delete-char
 
 zstyle ':completion:*' menu select=0
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' \
-                                    '+l:|=* r:|=*'
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '+l:|=* r:|=*'
+zstyle ':completion:*' completer _complete _ignored _files
+
 zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
 zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
 zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
@@ -63,5 +62,7 @@ zstyle ':completion:*' group-name ''
 
 autoload -Uz compinit
 compinit
+
+unset '_comps[source]'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
