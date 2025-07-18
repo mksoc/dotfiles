@@ -27,17 +27,6 @@ alias grep='grep --color=auto'
 alias free='free -h'
 alias df='df -h'
 
-alias glg='git log --stat --max-count=10'
-alias glo='git log --oneline'
-alias gpl='git pull'
-alias gps='git push'
-alias gca='git commit -am'
-alias gcm='git commit -m'
-alias gst='git status'
-alias gbr='git branch'
-alias gco='git checkout'
-alias gma='git checkout master'
-
 #################
 # CUSTOM CONFIG #
 #################
@@ -46,11 +35,21 @@ alias gma='git checkout master'
 [ -f ~/.zshrc.server ] && source ~/.zshrc.server
 [ -f ~/.zshrc.cern-pc ] && source ~/.zshrc.cern-pc
 
+###########
+# BINDKEY #
+###########
+bindkey -e
+bindkey "^[[3~" delete-char         # Del
+bindkey "^[[H" beginning-of-line    # Home 
+bindkey "^[OH" beginning-of-line    # Home
+bindkey "\033[1~" beginning-of-line # Home
+bindkey "^[[F" end-of-line          # End
+bindkey "^[OF" end-of-line          # End
+bindkey "\033[4~" end-of-line       # End
+
 ################
 # AUTOCOMPLETE #
 ################
-bindkey "^[[3~" delete-char
-
 zstyle ':completion:*' menu select=0
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '+l:|=* r:|=*'
 zstyle ':completion:*' completer _complete _ignored _files
@@ -64,5 +63,3 @@ autoload -Uz compinit
 compinit
 
 unset '_comps[source]'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
