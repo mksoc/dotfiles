@@ -34,10 +34,8 @@ function get_git_status {
             statc="%F{red}"
             icon=""
         elif $(echo "$rs" | grep '^## .*behind' &> /dev/null); then # is behind
-            statc="%F{white}"
             icon=""
         elif $(echo "$rs" | grep '^## .*ahead' &> /dev/null); then # is ahead
-            statc="%F{white}"
             icon=""
         else
             icon=""
