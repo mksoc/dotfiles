@@ -17,7 +17,39 @@ setopt HIST_IGNORE_ALL_DUPS
 ##########
 # PROMPT #
 ##########
-PROMPT='%(?.%F{green}✅%f.%F{94}💩%f) %B%F{cyan}%n@%m%f%b %F{242}%3~%f %F{cyan}>%f '
+function get_git_status {
+    local statc="%F{white}" # assume clean
+    local icon=""
+    local bname="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
+
+    if [ -n "$bname" ]; then
+        local rs="$(git status --porcelain -b)"
+        if $(echo "$rs" | grep -v '^##' &> /dev/null); then # is dirty
+            statc="%F{yellow}"
+        else
+            statc="%F{white}"
+        fi
+
+        if $(echo "$rs" | grep '^## .*diverged' &> /dev/null); then # has diverged
+            statc="%F{red}"
+            icon=""
+        elif $(echo "$rs" | grep '^## .*behind' &> /dev/null); then # is behind
+            statc="%F{white}"
+            icon=""
+        elif $(echo "$rs" | grep '^## .*ahead' &> /dev/null); then # is ahead
+            statc="%F{white}"
+            icon=""
+        else
+            icon=""
+        fi
+
+        echo -n "$statc $bname$icon%f"
+    fi
+}
+
+setopt PROMPT_SUBST
+
+PROMPT="%B%F{cyan}%n@%m%f%b %F{242}%3~%f $(get_git_status) %(?.%F{green}>%f.%F{94}💩%f) "
 
 ###########
 # ALIASES #

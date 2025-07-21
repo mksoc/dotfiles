@@ -25,32 +25,7 @@ function get_gp {
   esac
 }
 
-function get_git_status {
-    local statc="%F{white}" # assume clean
-    local icon=""
-    local bname="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
-
-    if [ -n "$bname" ]; then
-        local rs="$(git status --porcelain -b)"
-        if $(echo "$rs" | grep -v '^##' &> /dev/null); then # is dirty
-            statc="%F{yellow}"
-            icon="*"
-        elif $(echo "$rs" | grep '^## .*diverged' &> /dev/null); then # has diverged
-            statc="%F{red}"
-        elif $(echo "$rs" | grep '^## .*behind' &> /dev/null); then # is behind
-            statc="%F{yellow}"
-        elif $(echo "$rs" | grep '^## .*ahead' &> /dev/null); then # is ahead
-            statc="%F{yellow}"
-        else # is clean
-            statc="%F{white}"
-        fi
-
-        echo -n "$statc $bname$icon%f"
-    fi
-}
-
-setopt PROMPT_SUBST
-RPROMPT="$(get_git_status) $(get_gp)"
+RPROMPT="$(get_gp)"
  
 # Aliases
 alias nvim='env TERM=wezterm nvim'
