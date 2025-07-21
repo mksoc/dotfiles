@@ -17,7 +17,7 @@ setopt HIST_IGNORE_ALL_DUPS
 ##########
 # PROMPT #
 ##########
-PROMPT='%B%F{cyan}%n@%m%f%b %F{242}%3~%f %B%(!.%(?.%F{green}#.%F{red}#).%(?.%F{green}>.%F{red}>))%f%b '
+PROMPT='%(?.%F{green}✅%f.%F{94}💩%f) %B%F{cyan}%n@%m%f%b %F{242}%3~%f %F{cyan}>%f '
 
 ###########
 # ALIASES #
@@ -46,6 +46,8 @@ bindkey "\033[1~" beginning-of-line # Home
 bindkey "^[[F" end-of-line          # End
 bindkey "^[OF" end-of-line          # End
 bindkey "\033[4~" end-of-line       # End
+bindkey "^[[1;3D" beginning-of-line # Cmd + left
+bindkey "^[[1;3C" end-of-line       # Cmd + right
 
 ################
 # AUTOCOMPLETE #
