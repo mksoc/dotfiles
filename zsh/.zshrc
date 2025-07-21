@@ -81,11 +81,13 @@ function +vi-git-st() {
     (( $ahead )) && gitstatus+=( "${ahead}" )
     (( $behind )) && gitstatus+=( "${behind}" )
 
-    hook_com[misc]+=${(j:/:)gitstatus}
+    if [[ -n $gitstatus ]]; then
+        hook_com[misc]+=" ${(j::)gitstatus}"
+    fi
 }
 
 function git_colorize() {
-  if [[ "$vcs_info_msg_0_" == *\** || "$vcs_info_msg_0_" == *+* ]]; then
+  if [[ "$vcs_info_msg_0_" == *\** || "$vcs_info_msg_0_" == *+* || "$vcs_info_msg_0_" == ** || "$vcs_info_msg_0_" == ** ]]; then
     echo "%F{yellow}${vcs_info_msg_0_}%f"
   else
     echo "%F{green}${vcs_info_msg_0_}%f"
@@ -93,7 +95,7 @@ function git_colorize() {
 }
 
 setopt PROMPT_SUBST
-PROMPT='%B%F{cyan}%n@%m%f%b %F{242}%3~%f ${vcs_info_msg_0_} %(?.%F{green}>%f.%F{94}💩%f) '
+PROMPT='%B%F{cyan}%n@%m%f%b %F{242}%3~%f $(git_colorize) %(?.%F{green}>%f.%F{94}💩%f) '
 
 ###########
 # ALIASES #
