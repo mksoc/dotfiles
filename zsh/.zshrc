@@ -45,9 +45,55 @@ function get_git_status {
     fi
 }
 
-setopt PROMPT_SUBST
+autoload -Uz add-zsh-hook vcs_info
 
-PROMPT="%B%F{cyan}%n@%m%f%b %F{242}%3~%f $(get_git_status) %(?.%F{green}>%f.%F{94}💩%f) "
+# Run the `vcs_info` hook to grab git info before displaying the prompt
+add-zsh-hook precmd vcs_info
+
+# Style the vcs_info message
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*' formats ' %b%u%c%m'
+# Format when the repo is in an action (merge, rebase, etc)
+zstyle ':vcs_info:git*' actionformats '%F{14}⏱ %*%f'
+zstyle ':vcs_info:git*' unstagedstr '*'
+zstyle ':vcs_info:git*' stagedstr '+'
+# This enables %u and %c (unstaged/staged changes) to work,
+# but can be slow on large repos
+zstyle ':vcs_info:*:*' check-for-changes true
+
+### git: Show +N/-N when your local branch is ahead-of or behind remote HEAD.
+# Make sure you have added misc to your 'formats':  %m
+zstyle ':vcs_info:git*+set-message:*' hooks git-st
+function +vi-git-st() {
+    local ahead behind
+    local -a gitstatus
+
+    # Exit early in case the worktree is on a detached HEAD
+    git rev-parse ${hook_com[branch]}@{upstream} >/dev/null 2>&1 || return 0
+
+    local -a ahead_and_behind=(
+        $(git rev-list --left-right --count HEAD...${hook_com[branch]}@{upstream} 2>/dev/null)
+    )
+
+    ahead=${ahead_and_behind[1]}
+    behind=${ahead_and_behind[2]}
+
+    (( $ahead )) && gitstatus+=( "${ahead}" )
+    (( $behind )) && gitstatus+=( "${behind}" )
+
+    hook_com[misc]+=${(j:/:)gitstatus}
+}
+
+function git_colorize() {
+  if [[ "$vcs_info_msg_0_" == *\** || "$vcs_info_msg_0_" == *+* ]]; then
+    echo "%F{yellow}${vcs_info_msg_0_}%f"
+  else
+    echo "%F{green}${vcs_info_msg_0_}%f"
+  fi
+}
+
+setopt PROMPT_SUBST
+PROMPT='%B%F{cyan}%n@%m%f%b %F{242}%3~%f ${vcs_info_msg_0_} %(?.%F{green}>%f.%F{94}💩%f) '
 
 ###########
 # ALIASES #
