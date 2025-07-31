@@ -33,9 +33,5 @@ alias tgz="tar zxvf"
 alias innovus="innovus -stylus"
 alias lg="lazygit"
 
-alias devel65='/homedir/micdecm/DECM/bin/decm_go_project_noterm TSMC65 devel65 VCAD-9met-pdk-devel-CERN2019'
-alias devel28='/homedir/micdecm/DECM/bin/decm_go_project_noterm TSMC28 devel28 V09eval && /homedir/mandorno/bin/zsh'
-alias devel130='/homedir/micdecm/DECM/bin/decm_go_project_noterm TSMC130 eval130tsmc V7.0_PDK_CERN_v3.1_CERN2021'
-
 # Fzf
 [ -f /homedir/mandorno/.fzf.zsh ] && source /homedir/mandorno/.fzf.zsh
