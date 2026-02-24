@@ -1,4 +1,5 @@
 " Settings
+set number
 set tabstop=4
 set shiftwidth=4
 set scrolloff=5
@@ -25,8 +26,6 @@ nnoremap <S-Tab> <<
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-nnoremap <silent> <ESC> :noh<CR>
-
 nnoremap <leader>gg :lcd %:p:h \| :tab terminal ++close lazygit<CR>
 
 " Plugins
@@ -38,3 +37,8 @@ call plug#begin()
     Plug 'junegunn/fzf.vim'
 
 call plug#end()
+
+" Theme
+if &diff
+    colorscheme apprentice
+endif
