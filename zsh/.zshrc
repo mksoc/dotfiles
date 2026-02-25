@@ -78,8 +78,8 @@ function +vi-git-st() {
     ahead=${ahead_and_behind[1]}
     behind=${ahead_and_behind[2]}
 
-    (( $ahead )) && gitstatus+=( "${ahead}" )
-    (( $behind )) && gitstatus+=( "${behind}" )
+    (( $ahead )) && gitstatus+=( " ${ahead}" )
+    (( $behind )) && gitstatus+=( " ${behind}" )
 
     if [[ -n $gitstatus ]]; then
         hook_com[misc]+=" ${(j::)gitstatus}"
@@ -143,3 +143,5 @@ autoload -Uz compinit
 compinit
 
 unset '_comps[source]'
+
+fpath=($HOME/.zsh-complete $fpath)
