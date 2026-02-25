@@ -7,7 +7,12 @@ set expandtab
 set shell=zsh
 set splitright
 set splitbelow
-let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+set incsearch
+set hidden
+set ttimeout
+set ttimeoutlen=0
+set noswapfile
+autocmd FileType * set formatoptions-=cro
 
 " Mappings
 let mapleader=" "
@@ -26,15 +31,24 @@ nnoremap <S-Tab> <<
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
+nnoremap <leader>fe :E<CR>
+autocmd FileType netrw nnoremap <buffer> <ESC> :Rexplore<CR>
 nnoremap <leader>gg :lcd %:p:h \| :tab terminal ++close lazygit<CR>
 
+" Custom commands
+command! W w
+command! Wq wq
+command! Wqa wqa
+command! Q q
+command! Qa qa
 " Plugins
 call plug#begin()
 
     " List your plugins here
-    Plug 'francoiscabrol/ranger.vim'
+    Plug 'romainl/vim-cool'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'wsdjeg/vim-fetch'
 
 call plug#end()
 
