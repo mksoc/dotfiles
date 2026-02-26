@@ -55,6 +55,7 @@ command! Wq wq
 command! Wqa wqa
 command! Q q
 command! Qa qa
+
 " Plugins
 call plug#begin()
 
@@ -64,10 +65,23 @@ call plug#begin()
     Plug 'junegunn/fzf.vim'
     Plug 'wsdjeg/vim-fetch'
     Plug 'vim-airline/vim-airline'
+    Plug 'prabirshrestha/vim-lsp'
 
 call plug#end()
 
 " Theme
 if &diff
     colorscheme apprentice
+endif
+
+" LSP
+if executable('verible-verilog-ls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'verible-verilog-ls',
+        \ 'cmd': {server_info->[
+        \    'verible-verilog-ls',
+        \    '--rules_config_search'
+        \]},
+        \ 'allowlist': ['verilog', 'systemverilog'],
+        \ })
 endif
