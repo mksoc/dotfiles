@@ -144,4 +144,3 @@ compinit
 
 unset '_comps[source]'
 
-fpath=($HOME/.zsh-complete $fpath)

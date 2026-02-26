@@ -5,9 +5,7 @@ export PATH=/cerneda/utils/git/2.32/bin:$PATH
 export GIT_EXEC_PATH=/cerneda/utils/git/2.32/libexec/git-core
 export PATH=/cerneda/various/RHELx86/gtkwave-3.4.0/bin/:$PATH
 export PATH=/homedir/mandorno/.local/bin:$PATH
-export PATH=/homedir/mandorno/.cargo/bin:$PATH
-export PATH=/homedir/mandorno/sv2v/bin:$PATH
-export PYTHONPATH=/homedir/mandorno/.local/lib/python3.11/site-packages:$PYTHONPATH
+export SHELL=/homedir/mandorno/.local
 
 # Prompt
 function get_gp {
@@ -28,7 +26,6 @@ function get_gp {
 RPROMPT="$(get_gp)"
  
 # Aliases
-alias nvim='env TERM=wezterm nvim'
 alias tgz="tar zxvf"
 alias innovus="innovus -stylus"
 alias lg="lazygit"
