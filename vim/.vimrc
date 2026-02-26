@@ -1,4 +1,5 @@
 " Settings
+set runtimepath^=/homedir/mandorno/.vim
 set number
 set tabstop=4
 set shiftwidth=4
@@ -12,6 +13,7 @@ set hidden
 set ttimeout
 set ttimeoutlen=0
 set noswapfile
+set mouse=a
 autocmd FileType * set formatoptions-=cro
 
 " Mappings
@@ -33,6 +35,18 @@ vnoremap <S-Tab> <gv
 
 nnoremap <leader>fe :E<CR>
 autocmd FileType netrw nnoremap <buffer> <ESC> :Rexplore<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fh :History<CR>
+nnoremap <leader>fb :Buffers<CR>
+
+nnoremap [b :bprev<CR>
+nnoremap ]b :bnext<CR>
+
+nnoremap <leader>co :copen<CR>
+nnoremap <leader>cc :cclose<CR>
+nnoremap [c :cprev<CR>
+nnoremap ]c :cnext<CR>
+
 nnoremap <leader>gg :lcd %:p:h \| :tab terminal ++close lazygit<CR>
 
 " Custom commands
@@ -49,6 +63,7 @@ call plug#begin()
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'wsdjeg/vim-fetch'
+    Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
