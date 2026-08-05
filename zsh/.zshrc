@@ -5,6 +5,7 @@
 # Expansion and globbing
 setopt NO_CASE_GLOB
 setopt GLOB_DOTS
+setopt EXTENDED_GLOB
 
 # History 
 HISTFILE=$HOME/.zsh_history
@@ -144,3 +145,4 @@ compinit
 
 unset '_comps[source]'
 
+export PATH="$HOME/.local/bin:$PATH"
