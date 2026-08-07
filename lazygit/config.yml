@@ -1,0 +1,13 @@
+git:
+  # If not "none", lazygit will automatically fast-forward local branches to match
+  # their upstream after fetching. Applies to branches that are not the currently
+  # checked out branch, and only to those that are strictly behind their upstream
+  # (as opposed to diverged).
+  # Possible values: 'none' | 'onlyMainBranches' | 'allBranches'
+  autoForwardBranches: none
+
+  # If true, lazygit will automatically stage files that used to have merge
+  # conflicts but no longer do; and it will also ask you if you want to continue a
+  # merge or rebase if you've resolved all conflicts. If false, it won't do either
+  # of these things.
+  autoStageResolvedConflicts: false
