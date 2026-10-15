@@ -3,7 +3,6 @@ export CLICOLOR=1
 export PATH=/Users/marco/.local/bin:$PATH
 
 # Aliases
-alias lg=lazygit
 alias cernvnc='/Applications/TigerVNC\ Viewer\ 1.14.0.app/Contents/MacOS/TigerVNC\ Viewer micgate02.cern.ch:12 -via lxtunnel'
 alias vncgivepass='read -s "?VNC password:" VNC_PASSWORD ; export VNC_PASSWORD'
 

@@ -105,6 +105,7 @@ alias ll='ls -lahFH --color=auto'
 alias grep='grep --color=auto'
 alias free='free -h'
 alias df='df -h'
+alias lg=lazygit
 
 #################
 # CUSTOM CONFIG #

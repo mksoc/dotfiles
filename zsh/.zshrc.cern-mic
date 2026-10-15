@@ -27,7 +27,6 @@ RPROMPT="$(get_gp)"
 # Aliases
 alias tgz="tar zxvf"
 alias innovus="innovus -stylus"
-alias lg="lazygit"
 
 # Fzf
 [ -f /homedir/mandorno/.fzf.zsh ] && source /homedir/mandorno/.fzf.zsh
