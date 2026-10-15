@@ -1,4 +1,21 @@
 ###############
+# ENVIRONMENT #
+###############
+
+# Drop duplicate entries from PATH and FPATH
+typeset -U path fpath
+
+# Homebrew (macOS)
+if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
+fi
+
+path=("$HOME/.local/bin" $path)
+
+[[ $OSTYPE == darwin* ]] && export CLICOLOR=1
+
+###############
 # ZSH OPTIONS #
 ###############
 
@@ -7,45 +24,18 @@ setopt NO_CASE_GLOB
 setopt GLOB_DOTS
 setopt EXTENDED_GLOB
 
-# History 
+# History
 HISTFILE=$HOME/.zsh_history
-SAVEHIST=5000
-HISTSIZE=2000
-setopt APPEND_HISTORY # append to history
+HISTSIZE=10000
+SAVEHIST=10000
 setopt INC_APPEND_HISTORY # adds commands as they are typed, not at shell exit
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE  # don't save commands starting with a space
+setopt HIST_REDUCE_BLANKS
 
 ##########
-# PROMPT #
+#  VCS   #
 ##########
-function get_git_status {
-    local statc="%F{white}" # assume clean
-    local icon=""
-    local bname="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
-
-    if [ -n "$bname" ]; then
-        local rs="$(git status --porcelain -b)"
-        if $(echo "$rs" | grep -v '^##' &> /dev/null); then # is dirty
-            statc="%F{yellow}"
-        else
-            statc="%F{white}"
-        fi
-
-        if $(echo "$rs" | grep '^## .*diverged' &> /dev/null); then # has diverged
-            statc="%F{red}"
-            icon=""
-        elif $(echo "$rs" | grep '^## .*behind' &> /dev/null); then # is behind
-            icon=""
-        elif $(echo "$rs" | grep '^## .*ahead' &> /dev/null); then # is ahead
-            icon=""
-        else
-            icon=""
-        fi
-
-        echo -n "$statc $bname$icon%f"
-    fi
-}
-
 autoload -Uz add-zsh-hook vcs_info
 
 # Run the `vcs_info` hook to grab git info before displaying the prompt
@@ -95,6 +85,9 @@ function git_colorize() {
   fi
 }
 
+##########
+# PROMPT #
+##########
 setopt PROMPT_SUBST
 PROMPT='%B%F{cyan}%n@%m%f%b %F{242}%3~%f $(git_colorize) %(?.%F{green}>%f.%F{94}💩%f) '
 
@@ -110,8 +103,8 @@ alias lg=lazygit
 #################
 # CUSTOM CONFIG #
 #################
-[ -f ~/.zshrc.mac ] && source ~/.zshrc.mac
 [ -f /homedir/mandorno/.zshrc.cern-mic ] && source /homedir/mandorno/.zshrc.cern-mic
+[ -f ~/.zshrc.mac ] && source ~/.zshrc.mac
 [ -f ~/.zshrc.server ] && source ~/.zshrc.server
 [ -f ~/.zshrc.cern-pc ] && source ~/.zshrc.cern-pc
 
@@ -146,4 +139,16 @@ compinit
 
 unset '_comps[source]'
 
-export PATH="$HOME/.local/bin:$PATH"
+#######
+# FZF #
+#######
+if command -v fzf &>/dev/null && fzf --zsh &>/dev/null; then # fzf >= 0.48
+    source <(fzf --zsh)
+elif [[ -f ~/.fzf.zsh ]]; then
+    source ~/.fzf.zsh
+elif [[ -f /homedir/mandorno/.fzf.zsh ]]; then # cern-mic, where $HOME may be a project dir
+    source /homedir/mandorno/.fzf.zsh
+elif [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then # Debian/Ubuntu package
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+    source /usr/share/doc/fzf/examples/completion.zsh
+fi

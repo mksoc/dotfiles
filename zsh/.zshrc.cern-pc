@@ -1,20 +1,7 @@
-# Environment variables
-export CLICOLOR=1
-export PATH=/Users/marco/.local/bin:$PATH
-
 # Aliases
-alias cernvnc='/Applications/TigerVNC\ Viewer\ 1.14.0.app/Contents/MacOS/TigerVNC\ Viewer micgate02.cern.ch:12 -via lxtunnel'
-alias vncgivepass='read -s "?VNC password:" VNC_PASSWORD ; export VNC_PASSWORD'
-
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
-
-# FZF
-source <(fzf --zsh)
+# VNC_PASSWORD is kept as a non-exported shell variable and passed only to the viewer
+alias cernvnc='VNC_PASSWORD="$VNC_PASSWORD" /Applications/TigerVNC\ Viewer\ 1.14.0.app/Contents/MacOS/TigerVNC\ Viewer micgate02.cern.ch:12 -via lxtunnel'
+alias vncgivepass='read -s "?VNC password:" VNC_PASSWORD; echo'
 
 # Kerberos
 if ! klist 2> /dev/null | grep -q "mandorno"; then
