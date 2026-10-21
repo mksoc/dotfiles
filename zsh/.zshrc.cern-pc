@@ -1,6 +1,6 @@
 # Aliases
 # VNC_PASSWORD is kept as a non-exported shell variable and passed only to the viewer
-alias cernvnc='VNC_PASSWORD="$VNC_PASSWORD" /Applications/TigerVNC\ Viewer\ 1.14.0.app/Contents/MacOS/TigerVNC\ Viewer micgate02.cern.ch:12 -via lxtunnel'
+alias cernvnc='VNC_PASSWORD="$VNC_PASSWORD" /Applications/TigerVNC\ Viewer\ 1.14.0.app/Contents/MacOS/TigerVNC\ Viewer micgate02.cern.ch:12'
 alias vncgivepass='read -s "?VNC password:" VNC_PASSWORD; echo'
 
 # Kerberos
